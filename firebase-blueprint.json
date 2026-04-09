@@ -1,0 +1,43 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Stores user progress and profile information.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "completedTasks": { "type": "array", "items": { "type": "string" } },
+        "totalScore": { "type": "number" },
+        "role": { "type": "string", "enum": ["student", "admin"] }
+      },
+      "required": ["uid", "email"]
+    },
+    "Task": {
+      "title": "Learning Task",
+      "description": "Defines a backend challenge.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "difficulty": { "type": "string", "enum": ["beginner", "intermediate", "advanced"] },
+        "category": { "type": "string" },
+        "initialCode": { "type": "string" },
+        "solution": { "type": "string" }
+      },
+      "required": ["id", "title", "description"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile documents"
+    },
+    "/tasks/{taskId}": {
+      "schema": "Task",
+      "description": "Available learning tasks"
+    }
+  }
+}
