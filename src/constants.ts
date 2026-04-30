@@ -48,10 +48,105 @@ export const TRACKS: Track[] = [
     icon: 'Cloud',
     color: 'indigo',
     tasks: ['docker-basics-1', 'ci-cd-pipeline-1']
+  },
+  {
+    id: 'java-enterprise',
+    title: 'Java Enterprise Design',
+    description: 'Master enterprise patterns in Java. Learn to build scalable, professional backend systems.',
+    icon: 'Shield',
+    color: 'orange',
+    tasks: ['java-factory-pattern', 'java-adapter-pattern', 'java-observer-pattern']
   }
 ];
 
 export const ALL_TASKS: Task[] = [
+  {
+    id: 'java-factory-pattern',
+    title: 'Java: Factory Method',
+    description: 'In Java enterprise apps, we never use "new" for complex objects. Use a Factory to create instances of NotificationService.',
+    difficulty: 'intermediate',
+    category: 'Design Patterns',
+    trackId: 'java-enterprise',
+    initialCode: `public interface Notification { void send(); }\n\n// TODO: Create a Factory class that returns EmailNotification or SMSNotification\n`,
+    instructions: [
+      {
+        title: 'The Factory Pattern',
+        content: 'The Factory Method pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate.'
+      }
+    ],
+    basics: [
+      {
+        title: 'Why use Factory?',
+        content: 'It promotes loose coupling by eliminating the need to bind application-specific classes into the code.'
+      }
+    ],
+    sender: {
+      name: 'Sarah Chen',
+      role: 'Lead Backend Engineer',
+      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah'
+    },
+    subject: 'Architecture: Decoupling Creation',
+    priority: 'high',
+    visualType: 'architecture'
+  },
+  {
+    id: 'java-adapter-pattern',
+    title: 'Java: Structural Adapter',
+    description: 'We have a LegacyPrinter that uses printOld(). Adapt it to our new IPrinter interface that expects print().',
+    difficulty: 'intermediate',
+    category: 'Design Patterns',
+    trackId: 'java-enterprise',
+    initialCode: `class Legacy { void printOld() { ... } }\ninterface NewInterface { void print(); }\n\n// TODO: Create an Adapter class\n`,
+    instructions: [
+      {
+        title: 'The Adapter Pattern',
+        content: 'Adapter is a structural design pattern that allows objects with incompatible interfaces to collaborate.'
+      }
+    ],
+    basics: [
+      {
+        title: 'Real-world example',
+        content: 'Think of a power adapter. It lets you plug a US laptop into a European socket.'
+      }
+    ],
+    sender: {
+      name: 'Sarah Chen',
+      role: 'Lead Backend Engineer',
+      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah'
+    },
+    subject: 'Architecture: Bridging Interfaces',
+    priority: 'medium',
+    visualType: 'logic'
+  },
+  {
+    id: 'java-observer-pattern',
+    title: 'Java: Behavioral Observer',
+    description: 'Implement a Subject that notifies multiple Observers when a stock price changes.',
+    difficulty: 'intermediate',
+    category: 'Design Patterns',
+    trackId: 'java-enterprise',
+    initialCode: `interface Observer { void update(float price); }\nclass StockSubject { \n  // TODO: Implement register, remove, and notify observers\n}\n`,
+    instructions: [
+      {
+        title: 'The Observer Pattern',
+        content: 'Observer is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.'
+      }
+    ],
+    basics: [
+      {
+        title: 'Event Handling',
+        content: 'This is the foundation of event-driven programming, common in GUIs and real-time systems.'
+      }
+    ],
+    sender: {
+      name: 'Sarah Chen',
+      role: 'Lead Backend Engineer',
+      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah'
+    },
+    subject: 'Architecture: Reactive Systems',
+    priority: 'high',
+    visualType: 'memory'
+  },
   {
     id: 'js-syntax-1',
     title: 'Variables & Data Types',

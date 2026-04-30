@@ -15,6 +15,9 @@ import { cn } from './lib/utils';
 import { UserProfile, Task, Track, TaskStep } from './types';
 import { ALL_TASKS, TRACKS } from './constants';
 import { userService, taskService } from './services/dataService';
+import { TaskProviderFactory } from './lib/TaskFactory';
+import { VisualizerAdapter } from './lib/VisualizerAdapter';
+import { EvaluationFactory, EvaluationEngine } from './lib/EvaluationStrategy';
 
 // Code Editor Imports
 import Editor from 'react-simple-code-editor';
@@ -454,7 +457,8 @@ function TrackIcon({ name, className }: { name: string, className?: string }) {
 
 function TracksListView({ onSelectTrack, selectedTrack, onSelectTask }: { onSelectTrack: (t: Track) => void, selectedTrack: Track | null, onSelectTask: (t: Task) => void }) {
   if (selectedTrack) {
-    const trackTasks = ALL_TASKS.filter(t => t.trackId === selectedTrack.id);
+    const taskProvider = TaskProviderFactory.getProvider();
+    const trackTasks = taskProvider.getTasksByTrack(selectedTrack.id);
     return (
       <motion.div 
         initial={{ opacity: 0, x: 20 }}
@@ -574,6 +578,12 @@ function TaskView({ task, onBack, onComplete }: { task: Task, onBack: () => void
     setResult(null);
     
     try {
+      // 1. Behavioral Strategy Pattern: Static Analysis via local engine
+      const strategy = EvaluationFactory.getStrategyForTask(task.id);
+      const engine = new EvaluationEngine(strategy);
+      const staticResult = await engine.runEvaluation(code);
+
+      // 2. Complex AI Review via Gemini
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
@@ -595,10 +605,17 @@ function TaskView({ task, onBack, onComplete }: { task: Task, onBack: () => void
 
       const data = JSON.parse(response.text || "{}");
       
+      // Merge Strategy results with AI review for enterprise robustness
+      const finalResult = {
+        ...data,
+        success: data.success && staticResult.success,
+        review: staticResult.success ? data.review : `${staticResult.message}\n\n${data.review}`
+      };
+      
       // Artificial delay for visual effect
       setTimeout(() => {
-        setResult(data);
-        setVisualState(data.success ? 'success' : 'error');
+        setResult(finalResult);
+        setVisualState(finalResult.success ? 'success' : 'error');
         setEvaluating(false);
       }, 2000);
     } catch (e) {
@@ -861,7 +878,7 @@ function TaskView({ task, onBack, onComplete }: { task: Task, onBack: () => void
                 </div>
               </div>
               <div className="flex-1 flex items-center justify-center">
-                <SystemVisualizer state={visualState} type={task.visualType || 'architecture'} />
+                {VisualizerAdapter.render({ type: task.visualType || 'architecture', state: visualState })}
               </div>
             </div>
           </div>
