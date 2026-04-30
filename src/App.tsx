@@ -332,9 +332,6 @@ function DashboardView({ profile, onSelectTrack, onSelectTask }: { profile: User
               Resume Mission
               <ArrowRight className="w-5 h-5" />
             </button>
-            <button className="bg-slate-800/50 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-700 transition-all border border-slate-700/50 active:scale-95">
-              Analytics
-            </button>
           </div>
         </div>
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.03] pointer-events-none group-hover:opacity-[0.05] transition-opacity">
