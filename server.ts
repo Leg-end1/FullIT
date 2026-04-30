@@ -28,24 +28,28 @@ async function startServer() {
     }
 
     try {
-      // DEFAULT: Using Gemini via server-side for better deployment reliability
-      const ai = new GoogleGenAI(apiKey);
-      const model = ai.getGenerativeModel({ 
+      // Using Gemini via server-side for better deployment reliability
+      const ai = new GoogleGenAI({ apiKey });
+      const result = await ai.models.generateContent({
         model: "gemini-1.5-flash",
-        generationConfig: { responseMimeType: "application/json" }
+        contents: `Evaluate this code for the task: "${taskDescription}". 
+        Code: \n${code}\n
+        Return JSON ONLY: { "success": boolean, "review": string, "score": number, "optimizationTips": string[] }`,
+        config: {
+          responseMimeType: "application/json"
+        }
       });
       
-      const prompt = `Evaluate this code for the task: "${taskDescription}". 
-      Code: \n${code}\n
-      Return JSON ONLY: { "success": boolean, "review": string, "score": number, "optimizationTips": string[] }`;
+      if (!result.text) {
+        throw new Error("The AI model returned an empty response.");
+      }
 
-      const result = await model.generateContent(prompt);
-      const data = JSON.parse(result.response.text());
-      
+      const data = JSON.parse(result.text);
       res.json(data);
-    } catch (error) {
+    } catch (error: any) {
       console.error("AI Evaluation Error:", error);
-      res.status(500).json({ error: "Failed to evaluate code. Check your API key and quota." });
+      const errorMessage = error?.message || "Check your API key and quota.";
+      res.status(500).json({ error: `AI Error: ${errorMessage}` });
     }
   });
 

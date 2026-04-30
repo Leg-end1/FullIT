@@ -606,11 +606,11 @@ function TaskView({ task, onBack, onComplete }: { task: Task, onBack: () => void
         setVisualState(finalResult.success ? 'success' : 'error');
         setEvaluating(false);
       }, 2000);
-    } catch (e) {
+    } catch (e: any) {
       console.error("Gemini Error:", e);
       setResult({
         success: false,
-        review: "The Senior Architect is currently unavailable. Please check your connection and try again.",
+        review: `Review Engine Error: ${e.message || "Failed to contact the evaluation server."}\n\nTroubleshooting:\n1. Ensure GEMINI_API_KEY is set in Settings > Secrets.\n2. Check for quota limits.\n3. Verify your internet connection.`,
         score: 0
       });
       setVisualState('error');
