@@ -84,7 +84,60 @@ sequenceDiagram
     Frontend->>Frontend: updateVisualState(success)
 ```
 
-## 3. Justification for Enterprise Standards
+## 3. Component Diagram
+This diagram shows the high-level organization of the FullIT system modules.
+
+```mermaid
+componentDiagram
+    [User Browser] as UB
+    component [React Frontend] {
+      [Task Engine] as TE
+      [Visualizer Adapter] as VA
+      [Auth Manager] as AM
+    }
+    database [Firestore]
+    [Gemini AI API] as AI
+    
+    UB --> AM : login
+    UB --> TE : writes code
+    TE --> VA : triggers visuals
+    TE --> AI : requests review
+    AM --> Firestore : sync profile
+    TE --> Firestore : save progress
+```
+
+## 4. Entity Relationship Diagram (Firestore Schema)
+While Firestore is NoSQL, our data architecture follows this relational model.
+
+```mermaid
+erDiagram
+    USER ||--o{ PROGRESS : tracks
+    TRACK ||--o{ TASK : contains
+    TASK ||--o{ PROGRESS : relates_to
+    
+    USER {
+        string uid
+        string displayName
+        int totalScore
+        float efficiency
+    }
+    
+    TASK {
+        string id
+        string title
+        string difficulty
+        string visualType
+    }
+    
+    PROGRESS {
+        string userId
+        string taskId
+        boolean completed
+        timestamp lastAttempt
+    }
+```
+
+## 5. Justification for Enterprise Standards
 *   **Separation of Concerns:** Components like `TaskView` do not know *how* tasks are fetched or evaluated; they only interact with standard interfaces.
 *   **Loose Coupling:** The `Strategy` pattern allows us to update the "Rules of the Lab" without modifying the UI layer.
 *   **Scalability:** The `Factory` pattern ensures we can pivot to a cloud-based Database provider for task data with zero downtime and minimal code changes.

@@ -10,7 +10,6 @@ import {
   Mail, ClipboardList, Code2, Layout, Cloud, Cpu, Terminal
 } from 'lucide-react';
 import { motion, AnimatePresence, useAnimation } from 'motion/react';
-import { GoogleGenAI } from "@google/genai";
 import { cn } from './lib/utils';
 import { UserProfile, Task, Track, TaskStep } from './types';
 import { ALL_TASKS, TRACKS } from './constants';
@@ -580,27 +579,19 @@ function TaskView({ task, onBack, onComplete }: { task: Task, onBack: () => void
       const engine = new EvaluationEngine(strategy);
       const staticResult = await engine.runEvaluation(code);
 
-      // 2. Complex AI Review via Gemini
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
-      const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
-        contents: `You are a friendly and encouraging Senior Backend Architect mentoring a beginner student.
-        Evaluate this code for the task: "${task.description}". 
-        Code: \n${code}\n
-        
-        Provide a review that:
-        1. Starts with a positive observation.
-        2. Explains any errors in simple, non-technical terms first.
-        3. Suggests 1-2 specific improvements for security or optimization.
-        4. Gives a score (0-100) based on how well they met the requirements.
-        
-        Return JSON format: { "success": boolean, "review": string, "score": number, "optimizationTips": string[] }`,
-        config: {
-          responseMimeType: "application/json"
-        }
+      // 2. AI Review via Secure Server Endpoint
+      const aiResponse = await fetch("/api/evaluate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code, taskDescription: task.description })
       });
 
-      const data = JSON.parse(response.text || "{}");
+      if (!aiResponse.ok) {
+        const errData = await aiResponse.json();
+        throw new Error(errData.error || "Failed to reach the Senior Architect evaluation engine.");
+      }
+
+      const data = await aiResponse.json();
       
       // Merge Strategy results with AI review for enterprise robustness
       const finalResult = {
