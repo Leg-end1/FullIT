@@ -3,7 +3,7 @@ import { createServer as createViteServer } from "vite";
 import path from "path";
 import cors from "cors";
 import bodyParser from "body-parser";
-import { GoogleGenAI } from "@google/genai";
+import OpenAI from "openai";
 
 async function startServer() {
   const app = express();
@@ -20,31 +20,32 @@ async function startServer() {
   app.post("/api/evaluate", async (req, res) => {
     const { code, taskDescription } = req.body;
     
-    // This allows you to use your own key from the "Settings > Secrets" menu
-    const apiKey = process.env.EXTERNAL_AI_API_KEY || process.env.GEMINI_API_KEY;
+    const apiKey = process.env.OPENAI_API_KEY;
 
     if (!apiKey) {
-      return res.status(500).json({ error: "No AI API Key found. Please add EXTERNAL_AI_API_KEY in Settings > Secrets." });
+      return res.status(500).json({ error: "No OpenAI API Key found. Please add OPENAI_API_KEY in Settings > Secrets." });
     }
 
     try {
-      // Using Gemini via server-side for better deployment reliability
-      const ai = new GoogleGenAI({ apiKey });
-      const result = await ai.models.generateContent({
-        model: "gemini-1.5-flash",
-        contents: `Evaluate this code for the task: "${taskDescription}". 
-        Code: \n${code}\n
-        Return JSON ONLY: { "success": boolean, "review": string, "score": number, "optimizationTips": string[] }`,
-        config: {
-          responseMimeType: "application/json"
-        }
+      // Using OpenAI via server-side
+      const openai = new OpenAI({ apiKey });
+      
+      const prompt = `Evaluate this code for the task: "${taskDescription}". 
+      Code: \n${code}\n
+      Return JSON ONLY: { "success": boolean, "review": string, "score": number, "optimizationTips": string[] }`;
+
+      const response = await openai.chat.completions.create({
+        model: "gpt-4o-mini", // Use gpt-4o-mini or your preferred model
+        messages: [{ role: "user", content: prompt }],
+        response_format: { type: "json_object" }
       });
       
-      if (!result.text) {
+      const text = response.choices[0]?.message?.content;
+      if (!text) {
         throw new Error("The AI model returned an empty response.");
       }
 
-      const data = JSON.parse(result.text);
+      const data = JSON.parse(text);
       res.json(data);
     } catch (error: any) {
       console.error("AI Evaluation Error:", error);
