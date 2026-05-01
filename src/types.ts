@@ -41,7 +41,7 @@ export interface Task {
   };
   subject?: string;
   priority?: 'low' | 'medium' | 'high' | 'urgent';
-  visualType?: 'architecture' | 'logic' | 'memory';
+  visualType?: 'architecture' | 'logic' | 'memory' | 'system';
 }
 
 export interface InterviewProbe {

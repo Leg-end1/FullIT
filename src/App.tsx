@@ -38,6 +38,8 @@ import {
   Activity,
   ShieldCheck,
   Binary,
+  RotateCcw,
+  Trash2,
 } from "lucide-react";
 import { motion, AnimatePresence, useAnimation } from "motion/react";
 import { cn } from "./lib/utils";
@@ -426,7 +428,16 @@ export default function App() {
                 onSelectTask={setSelectedTask}
               />
             ) : activeTab === "exams" ? (
-              <ExamsView onSelectInterview={setSelectedInterview} selectedInterview={selectedInterview} onBack={() => setSelectedInterview(null)} />
+              <ExamsView 
+                onSelectInterview={setSelectedInterview} 
+                selectedInterview={selectedInterview} 
+                onBack={() => setSelectedInterview(null)} 
+                onComplete={async (score) => {
+                  if (user && selectedInterview && !profile?.completedTasks.includes(selectedInterview.id)) {
+                    await userService.updateProgress(user.uid, selectedInterview.id, score);
+                  }
+                }}
+              />
             ) : activeTab === "ranking" ? (
               <RankingView />
             ) : activeTab === "admin" ? (
@@ -829,14 +840,16 @@ function TracksListView({
 function ExamsView({ 
   onSelectInterview, 
   selectedInterview,
-  onBack
+  onBack,
+  onComplete
 }: { 
   onSelectInterview: (i: Interview) => void;
   selectedInterview: Interview | null;
   onBack: () => void;
+  onComplete: (score: number) => void;
 }) {
   if (selectedInterview) {
-    return <SimulationRoom interview={selectedInterview} onBack={onBack} />;
+    return <SimulationRoom interview={selectedInterview} onBack={onBack} onComplete={onComplete} />;
   }
 
   return (
@@ -915,7 +928,7 @@ function ExamsView({
   );
 }
 
-function SimulationRoom({ interview, onBack }: { interview: Interview; onBack: () => void }) {
+function SimulationRoom({ interview, onBack, onComplete }: { interview: Interview; onBack: () => void; onComplete: (score: number) => void }) {
   const [messages, setMessages] = useState<{ sender: 'ai' | 'user'; text: string; code?: string }[]>([]);
   const [userInput, setUserInput] = useState("");
   const [code, setCode] = useState("// Your code will appear here or you can start drafting...\n");
@@ -971,12 +984,16 @@ function SimulationRoom({ interview, onBack }: { interview: Interview; onBack: (
         text: result.responseText 
       }]);
 
-      setTotalScore(prev => prev + result.scoreDelta);
+      const newTotalScore = totalScore + result.scoreDelta;
+      setTotalScore(newTotalScore);
       setPhase(result.phase);
       if (result.feedback) setFeedbackHistory(prev => [...prev, result.feedback]);
 
       if (result.phase === 'complete') {
         setIsComplete(true);
+        // Base XP (100) + performance score
+        const finalReward = 100 + Math.max(0, Math.round(newTotalScore));
+        onComplete(finalReward);
       }
       setIsEvaluating(false);
     } catch (err) {
@@ -1214,6 +1231,83 @@ function SimulationRoom({ interview, onBack }: { interview: Interview; onBack: (
 }
 function TaskVisualization({ type, activeStep, totalSteps }: { type?: string, activeStep: number, totalSteps: number }) {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  if (type === 'system') {
+    return (
+      <div className="h-full flex items-center justify-center p-8 bg-neutral-950 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_#10b981_0%,_transparent_1%)] bg-[length:40px_40px]" />
+        </div>
+        <div className="relative z-10 w-full flex flex-col items-center gap-12">
+          <div className="flex items-center gap-16">
+            <motion.div 
+               animate={{ 
+                 borderColor: activeStep >= 0 ? "#10b981" : "#262626",
+                 boxShadow: activeStep >= 0 ? "0 0 30px rgba(16,185,129,0.15)" : "none"
+               }}
+               className="w-24 h-24 rounded-[2.5rem] border-2 border-neutral-800 bg-black flex items-center justify-center relative group"
+            >
+              <div className="absolute -top-3 px-2 py-1 bg-neutral-900 border border-neutral-800 rounded text-[6px] font-black text-neutral-500 uppercase tracking-widest transition-colors group-hover:text-emerald-500">Node_Alpha</div>
+              <Cpu className={cn("w-10 h-10 transition-colors duration-500", activeStep >= 0 ? "text-emerald-500" : "text-neutral-800")} />
+            </motion.div>
+
+            <div className="w-24 flex flex-col gap-2">
+              {[0, 1, 2].map(i => (
+                <div key={i} className="h-1 w-full bg-neutral-900 rounded-full relative overflow-hidden">
+                  <motion.div 
+                    animate={{ 
+                      x: ["-100%", "100%"],
+                      opacity: activeStep >= 1 ? 1 : 0
+                    }}
+                    transition={{ 
+                      duration: 1.5, 
+                      repeat: Infinity, 
+                      delay: i * 0.4,
+                      ease: "linear"
+                    }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-500 to-transparent w-full"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <motion.div 
+               animate={{ 
+                 borderColor: activeStep >= 1 ? "#10b981" : "#262626",
+                 scale: activeStep >= 1 ? 1.05 : 1
+               }}
+               className="w-32 h-32 rounded-full border-2 border-dashed border-neutral-800 bg-black flex items-center justify-center relative"
+            >
+               <div className="absolute -top-3 px-2 py-1 bg-neutral-900 border border-neutral-800 rounded text-[6px] font-black text-neutral-500 uppercase tracking-widest">Gateway_Primary</div>
+               <Server className={cn("w-12 h-12 transition-colors duration-500", activeStep >= 1 ? "text-emerald-500" : "text-neutral-800")} />
+               {activeStep >= 1 && (
+                 <motion.div 
+                   animate={{ scale: [1, 1.4], opacity: [0.5, 0] }}
+                   transition={{ duration: 2, repeat: Infinity }}
+                   className="absolute inset-0 rounded-full border-2 border-emerald-500"
+                 />
+               )}
+            </motion.div>
+          </div>
+          
+          <div className="flex gap-4">
+             {Array.from({ length: totalSteps }).map((_, i) => (
+               <div key={i} className="flex flex-col items-center gap-2">
+                 <motion.div 
+                    animate={{ 
+                      height: i <= activeStep ? 16 : 8,
+                      backgroundColor: i <= activeStep ? "#10b981" : "#262626"
+                    }}
+                    className="w-1 rounded-full"
+                 />
+                 <span className={cn("text-[6px] font-black uppercase tracking-tighter", i <= activeStep ? "text-emerald-500" : "text-neutral-700")}>S_{i+1}</span>
+               </div>
+             ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (type === 'memory') {
     return (
@@ -1995,13 +2089,45 @@ function AdminView() {
     fetchUsers();
   }, []);
 
-  const handleDelete = async (uid: string) => {
+  const handleUpdateRole = async (uid: string, newRole: string) => {
+    try {
+      await userService.updateProfile(uid, { role: newRole as any });
+      setUsers(users.map(u => u.uid === uid ? { ...u, role: newRole as any } : u));
+    } catch (e) {
+      alert("Failed to update role: " + e);
+    }
+  };
+
+  const handleUpdateScore = async (uid: string, currentScore: number) => {
+    const newScore = parseInt(prompt("Enter new score:", currentScore.toString()) || "");
+    if (!isNaN(newScore)) {
+      try {
+        await userService.updateProfile(uid, { totalScore: newScore });
+        setUsers(users.map(u => u.uid === uid ? { ...u, totalScore: newScore } : u));
+      } catch (e) {
+        alert("Failed to update score: " + e);
+      }
+    }
+  };
+
+  const handleDeleteUser = async (uid: string) => {
     if (confirm("Are you sure you want to delete this user? This action is irreversible.")) {
       try {
         await userService.deleteUser(uid);
         setUsers(users.filter((u) => u.uid !== uid));
       } catch (e) {
         alert("Failed to delete user: " + e);
+      }
+    }
+  };
+
+  const handleResetProgress = async (uid: string) => {
+    if (confirm("Are you sure you want to reset this user's progress? This action is irreversible.")) {
+      try {
+        await userService.updateProfile(uid, { completedTasks: [] });
+        setUsers(users.map(u => u.uid === uid ? { ...u, completedTasks: [] } : u));
+      } catch (e) {
+        alert("Failed to reset progress: " + e);
       }
     }
   };
@@ -2050,16 +2176,39 @@ function AdminView() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center gap-8">
+              <div className="flex items-center gap-3">
                  <div className="text-right">
                     <p className="text-xl font-black text-black tracking-tight">{u.totalScore}</p>
                     <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">XP LOAD</p>
                  </div>
                  <button 
-                  onClick={() => handleDelete(u.uid)}
-                  className="p-4 bg-white border border-neutral-100 rounded-2xl text-red-400 hover:bg-red-500 hover:text-white hover:border-red-500 transition-all opacity-0 group-hover:opacity-100 shadow-sm"
+                  onClick={() => handleUpdateScore(u.uid, u.totalScore)}
+                  className="p-4 bg-white border border-neutral-100 rounded-2xl text-emerald-500 hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all shadow-sm"
                  >
-                    <RefreshCw className="w-5 h-5 rotate-45" />
+                    <RefreshCw className="w-5 h-5" />
+                 </button>
+                 <button 
+                  onClick={() => handleResetProgress(u.uid)}
+                  className="p-4 bg-white border border-neutral-100 rounded-2xl text-blue-500 hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all shadow-sm"
+                 >
+                    <RotateCcw className="w-5 h-5" />
+                 </button>
+                 <button 
+                  onClick={() => handleDeleteUser(u.uid)}
+                  className="p-4 bg-white border border-neutral-100 rounded-2xl text-red-500 hover:bg-red-500 hover:text-white hover:border-red-500 transition-all shadow-sm"
+                 >
+                    <Trash2 className="w-5 h-5" />
+                 </button>
+                 <button 
+                  onClick={() => handleUpdateRole(u.uid, u.role === 'admin' ? 'student' : 'admin')}
+                  className={cn(
+                    "p-4 border rounded-2xl transition-all shadow-sm",
+                    u.role === 'admin' 
+                      ? "bg-amber-500/10 border-amber-500/20 text-amber-500 hover:bg-amber-500 hover:text-white"
+                      : "bg-white border-neutral-100 text-neutral-400 hover:bg-black hover:text-white"
+                  )}
+                 >
+                    <Shield className="w-5 h-5" />
                  </button>
               </div>
             </div>

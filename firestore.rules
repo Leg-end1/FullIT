@@ -38,8 +38,7 @@ service cloud.firestore {
     }
 
     function isAdmin() {
-      return isAuthenticated() && 
-        (request.auth.token.email == "240118012@sdu.edu.kz" && request.auth.token.email_verified == true);
+      return isAuthenticated() && (request.auth.uid == "kkFfFaWlfTYYW8dcv6PHOgev1E22");
     }
 
     function isValidUser(data) {
@@ -52,13 +51,13 @@ service cloud.firestore {
       allow read: if isOwner(userId) || isAdmin();
       allow list: if isAdmin();
       allow create: if isAuthenticated() && isOwner(userId) && isValidUser(request.resource.data);
-      allow update: if isOwner(userId);
+      allow update: if isOwner(userId) || isAdmin();
       allow delete: if isAdmin();
     }
 
     match /leaderboard/{userId} {
       allow read: if true;
-      allow write: if isOwner(userId);
+      allow write: if isOwner(userId) || isAdmin();
     }
 
     match /tasks/{taskId} {

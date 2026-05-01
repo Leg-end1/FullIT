@@ -200,6 +200,30 @@ export const ALL_TASKS: Task[] = [
     ],
     visualType: "logic"
   },
+  {
+    id: "programming-foundations-task-3",
+    title: "Data Structures: The Array List",
+    description: "Your system needs to handle collections of data. An array is the most fundamental way to store a sequence of items.",
+    difficulty: "beginner",
+    category: "Arrays",
+    trackId: "programming-foundations",
+    sender: { name: "Dr. Aris", role: "Chief Systems Architect", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aris" },
+    subject: "Collection Buffer Initialization",
+    priority: "medium",
+    initialCode: "function initializeBuffer() {\n  // 1. Create an array 'buffer' with numbers 10, 20, 30\n  // 2. Add 40 to the end of the array\n  // 3. Log the length of the array\n}",
+    basics: [
+      { title: "Arrays", content: "Arrays are ordered lists of values. They are zero-indexed, meaning the first item is at position 0." },
+      { title: "Array Methods", content: "Use .push() to add items to the end of an array." }
+    ],
+    instructions: [
+      { title: "Declaration", content: "Use 'const buffer = [10, 20, 30];'." },
+      { title: "Expansion", content: "Call 'buffer.push(40);'." }
+    ],
+    tips: [
+      { title: "Zero Indexing", content: "Always remember that buffer[0] is the first element, not buffer[1]." }
+    ],
+    visualType: "memory"
+  },
   // FRONTEND TASKS
   {
     id: "frontend-mastery-task-1",
@@ -224,6 +248,54 @@ export const ALL_TASKS: Task[] = [
       { title: "Immutability", content: "Never update state directly. Always use the setter function provided by useState." }
     ],
     visualType: "architecture"
+  },
+  {
+    id: "frontend-mastery-task-2",
+    title: "The Effect Hook: API Synchronization",
+    description: "Most apps live on the wire. You need to fetch remote data when a component mounts.",
+    difficulty: "intermediate",
+    category: "React Hooks",
+    trackId: "frontend-mastery",
+    sender: { name: "Lina", role: "UI/UX Director", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Lina" },
+    subject: "Remote Data Integration",
+    priority: "high",
+    initialCode: "function UserProfile() {\n  useEffect(() => {\n    // Fetch data from '/api/user'\n    // Log 'User Data Inbound'\n  }, []);\n  return <div>Loading...</div>;\n}",
+    basics: [
+      { title: "useEffect", content: "The useEffect hook allows you to perform side effects (like data fetching) in functional components." },
+      { title: "Dependency Array", content: "An empty array [] means the effect only runs once when the component mounts." }
+    ],
+    instructions: [
+      { title: "Effect Definition", content: "Implement the useEffect callback." },
+      { title: "Console Log", content: "Verify the trigger with a console.log." }
+    ],
+    tips: [
+      { title: "Cleanup", content: "Return a function from useEffect to handle cleanup (like cancelling network requests)." }
+    ],
+    visualType: "system"
+  },
+  {
+    id: "frontend-mastery-task-3",
+    title: "Component Composition: Reusable UI",
+    description: "Don't repeat yourself. Logic should be encapsulated into small, reusable building blocks.",
+    difficulty: "intermediate",
+    category: "Architecture",
+    trackId: "frontend-mastery",
+    sender: { name: "Lina", role: "UI/UX Director", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Lina" },
+    subject: "UI Pattern Standardization",
+    priority: "medium",
+    initialCode: "function Card({ title, children }) {\n  return (\n    <div className='p-4 border'>\n       <h3>{title}</h3>\n       {children}\n    </div>\n  );\n}",
+    basics: [
+      { title: "Props", content: "Props (properties) are how we pass data from parent components to children." },
+      { title: "Children", content: "The 'children' prop allows you to nest components inside each other." }
+    ],
+    instructions: [
+      { title: "Define Props", content: "Ensure the title string is rendered correctly." },
+      { title: "Nest Content", content: "Use the children prop to render nested elements." }
+    ],
+    tips: [
+      { title: "TypeScript Types", content: "Define interfaces for your props to catch errors at compile time." }
+    ],
+    visualType: "system"
   },
   // BACKEND TASKS
   {
@@ -250,7 +322,31 @@ export const ALL_TASKS: Task[] = [
     ],
     visualType: "architecture"
   },
-  // DATABASE TASKS
+  {
+    id: "backend-basics-task-2",
+    title: "RESTful Endpoints: POST Controllers",
+    description: "Data ingress must be handled securely. Implement a controller that receives and validates JSON data.",
+    difficulty: "intermediate",
+    category: "Express",
+    trackId: "backend-basics",
+    sender: { name: "Kai", role: "Cluster Architect", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kai" },
+    subject: "Data Ingress Control",
+    priority: "urgent",
+    initialCode: "app.post('/api/users', (req, res) => {\n  const { username } = req.body;\n  // 1. If username exists, send 201 Created\n  // 2. Otherwise send 400 Bad Request\n});",
+    basics: [
+      { title: "Status Codes", content: "HTTP status codes tell the client the result of their request (e.g., 200 OK, 404 Not Found)." },
+      { title: "Request Body", content: "req.body contains data sent by the client, often as a JSON object." }
+    ],
+    instructions: [
+      { title: "Validation", content: "Check for the existence of the username field." },
+      { title: "Response", content: "Use res.status().send() to respond appropriately." }
+    ],
+    tips: [
+      { title: "JSON Middleware", content: "Ensure app.use(express.json()) is included so req.body is correctly parsed." }
+    ],
+    visualType: "logic"
+  },
+    // DATABASE TASKS
   {
     id: "database-design-task-1",
     title: "Schema Blueprint: Normalization",
@@ -274,6 +370,150 @@ export const ALL_TASKS: Task[] = [
       { title: "Naming Conventions", content: "Use snake_case for table and column names in SQL for better consistency." }
     ],
     visualType: "logic"
+  },
+  {
+    id: "database-design-task-2",
+    title: "Query Optimization: Indexing",
+    description: "Performance degrades as data grows. Add indexes to speed up common lookup operations.",
+    difficulty: "intermediate",
+    category: "SQL Optimization",
+    trackId: "database-design",
+    sender: { name: "Sita", role: "Database Admin", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sita" },
+    subject: "Latency Mitigation Strategy",
+    priority: "high",
+    initialCode: "-- 1. Create an index on 'email' in the 'users' table\n-- 2. Create a multipart index on 'category' and 'created_at' in 'posts'",
+    basics: [
+      { title: "Indexes", content: "Indexes are special lookup tables that the database search engine can use to speed up data retrieval." },
+      { title: "Multipart Indexes", content: "Indexes can cover multiple columns, which is useful for queries with complex WHERE clauses." }
+    ],
+    instructions: [
+      { title: "Simple Index", content: "Use CREATE INDEX on the email column." },
+      { title: "Composite Index", content: "Group multiple columns in a single index declaration." }
+    ],
+    tips: [
+      { title: "Write Performance", content: "Remember that while indexes speed up reads, they can slightly slow down writes (INSERT/UPDATE)." }
+    ],
+    visualType: "memory"
+  },
+  {
+    id: "database-design-task-3",
+    title: "Relational Complexity: Many-to-Many",
+    description: "Sometimes data relationships are complex. Implement a linking table for students and courses.",
+    difficulty: "intermediate",
+    category: "SQL Design",
+    trackId: "database-design",
+    sender: { name: "Sita", role: "Database Admin", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sita" },
+    subject: "Academic Management Schema",
+    priority: "medium",
+    initialCode: "-- 1. Create a table 'enrollments'\n-- 2. Link student_id to students table\n-- 3. Link course_id to courses table",
+    basics: [
+      { title: "Joint Tables", content: "A joint table (or linking table) is used to handle many-to-many relationships in relational databases." }
+    ],
+    instructions: [
+      { title: "Create Table", content: "Define the enrollments table with appropriate foreign keys." },
+      { title: "Primary Key", content: "Use a composite primary key (student_id, course_id) for uniqueness." }
+    ],
+    tips: [
+      { title: "Normalization", content: "Avoid storing course data directly in the student table; always use a relation for many-to-many data." }
+    ],
+    visualType: "system"
+  },
+  // DEVOPS TASKS
+  {
+    id: "devops-essentials-task-1",
+    title: "Containerization: Docker Ecosystem",
+    description: "Isolate the runtime. You need to build a configuration check that ensures the system knows which environment it's operating in.",
+    difficulty: "beginner",
+    category: "Infrastructure",
+    trackId: "devops-essentials",
+    sender: { name: "Nova", role: "Site Reliability Engineer", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Nova" },
+    subject: "Platform Configuration Audit",
+    priority: "high",
+    initialCode: "const ENV = 'PROD';\nlet endpoint;\n\n// 1. If ENV is 'PROD', set endpoint to 'https://api.fullit.com'\n// 2. Otherwise set it to 'http://localhost:3000'",
+    basics: [
+      { title: "Environment Variables", content: "These allow us to change app behavior without changing the code itself." },
+      { title: "Immutability", content: "Containers are meant to be immutable; they should behave exactly the same way every time they start." }
+    ],
+    instructions: [
+      { title: "Conditional Config", content: "Use an 'if' statement to switch the endpoint based on the ENV variable." },
+      { title: "Fallback", content: "Ensure a default endpoint is set if the environment is unknown." }
+    ],
+    tips: [
+      { title: "Secrets", content: "Never hardcode passwords or keys in environment variables that are checked into source control." }
+    ],
+    visualType: "memory"
+  },
+  {
+    id: "devops-essentials-task-2",
+    title: "Continuous Integration: Testing Pipeline",
+    description: "Automation is key. implement a guard function that only allows deployment if all tests pass.",
+    difficulty: "intermediate",
+    category: "CI/CD",
+    trackId: "devops-essentials",
+    sender: { name: "Nova", role: "Site Reliability Engineer", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Nova" },
+    subject: "Deployment Gate Implementation",
+    priority: "urgent",
+    initialCode: "function canDeploy(testResults) {\n  // 1. Check if 'failedCount' is 0\n  // 2. Check if 'coverage' is above 80\n  // 3. Return true only if both are met\n}",
+    basics: [
+      { title: "CI/CD", content: "Continuous Integration and Continuous Deployment (CI/CD) automates the process of software delivery." }
+    ],
+    instructions: [
+      { title: "Conditionals", content: "Implement the logic check for test results." },
+      { title: "Boolean Return", content: "Ensure a clear true/false output." }
+    ],
+    tips: [
+      { title: "Code Coverage", content: "Aim for high code coverage, but remember that 100% coverage doesn't always mean 0% bugs." }
+    ],
+    visualType: "system"
+  },
+  // PROGRAMMING FOUNDATIONS
+  {
+    id: "programming-foundations-task-4",
+    title: "Computational Iteration: The Loop",
+    description: "Manual repetition is prone to error. Use loops to process bulk data automatically.",
+    difficulty: "beginner",
+    category: "Loops",
+    trackId: "programming-foundations",
+    sender: { name: "Dr. Aris", role: "Chief Systems Architect", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aris" },
+    subject: "Batch Processing Protocol",
+    priority: "medium",
+    initialCode: "function processItems(items) {\n  // 1. Loop through the 'items' array\n  // 2. Log each item to the console\n}",
+    basics: [
+      { title: "For Loops", content: "For loops are used when you know exactly how many times you want to run a block of code." },
+      { title: "forEach", content: "The .forEach() method is a more modern way to iterate through array elements." }
+    ],
+    instructions: [
+      { title: "Iteration", content: "Implement a loop or forEach call." },
+      { title: "Execution", content: "Perform the log operation inside the loop." }
+    ],
+    tips: [
+      { title: "Performance", content: "Avoid heavy logic inside loops when processing large datasets." }
+    ],
+    visualType: "memory"
+  },
+  {
+    id: "programming-foundations-task-5",
+    title: "Module Pattern: Functional Logic",
+    description: "Organization is power. Divide your logic into clear, focused functions.",
+    difficulty: "beginner",
+    category: "Functions",
+    trackId: "programming-foundations",
+    sender: { name: "Dr. Aris", role: "Chief Systems Architect", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aris" },
+    subject: "Subroutine Deconstruction",
+    priority: "medium",
+    initialCode: "function calculateTax(price) {\n  return price * 0.2;\n}\n\nfunction getFinalPrice(price) {\n  // 1. Call calculateTax(price)\n  // 2. Add tax to the original price and return it\n}",
+    basics: [
+      { title: "Functions", content: "Functions are reusable blocks of code that perform a specific task." },
+      { title: "Return Values", content: "Functions use the 'return' keyword to send data back to where they were called." }
+    ],
+    instructions: [
+      { title: "Integration", content: "Call the secondary function within the main one." },
+      { title: "Return Strategy", content: "Ensure the final calculation is returned correctly." }
+    ],
+    tips: [
+      { title: "Pure Functions", content: "Whenever possible, write functions that only depend on their inputs and don't change global state." }
+    ],
+    visualType: "system"
   },
   // SECURITY TASKS
   {
