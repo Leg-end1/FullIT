@@ -4,9 +4,12 @@ import {
   arrayUnion, 
   increment, 
   getDoc,
+  getDocs,
   setDoc,
   collection,
   query,
+  orderBy,
+  limit,
   where,
   onSnapshot
 } from 'firebase/firestore';
@@ -20,18 +23,42 @@ export const userService = {
     return snap.exists() ? (snap.data() as UserProfile) : null;
   },
 
-  async updateProgress(uid: string, taskId: string, score: number) {
-    const docRef = doc(db, 'users', uid);
-    await updateDoc(docRef, {
-      completedTasks: arrayUnion(taskId),
-      totalScore: increment(score)
-    });
+  async getLeaderboard(limitCount: number = 10): Promise<UserProfile[]> {
+    const leaderboardRef = collection(db, 'leaderboard');
+    const q = query(leaderboardRef, orderBy('totalScore', 'desc'), limit(limitCount));
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs.map(doc => doc.data() as UserProfile);
   },
 
   async setTrack(uid: string, trackId: string) {
     const docRef = doc(db, 'users', uid);
     await updateDoc(docRef, {
       currentTrackId: trackId
+    });
+  },
+
+  async updateProgress(uid: string, taskId: string, score: number) {
+    const docRef = doc(db, 'users', uid);
+    const leadRef = doc(db, 'leaderboard', uid);
+    
+    // Get existing profile to update leaderboard safely
+    const snap = await getDoc(docRef);
+    if(snap.exists()) {
+      const data = snap.data() as UserProfile;
+      const newTasks = [...data.completedTasks];
+      if(!newTasks.includes(taskId)) newTasks.push(taskId);
+      
+      await setDoc(leadRef, {
+        uid,
+        displayName: data.displayName,
+        totalScore: data.totalScore + score,
+        completedTasks: newTasks
+      }, { merge: true });
+    }
+
+    await updateDoc(docRef, {
+      completedTasks: arrayUnion(taskId),
+      totalScore: increment(score)
     });
   },
 

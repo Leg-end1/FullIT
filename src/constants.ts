@@ -1,622 +1,3905 @@
-import { Task, Track } from './types';
+import { Task, Track } from "./types";
 
 export const TRACKS: Track[] = [
   {
-    id: 'programming-foundations',
-    title: 'Programming Foundations',
-    description: 'Start your journey here. Learn the core syntax and logic that powers all software.',
-    icon: 'Terminal',
-    color: 'emerald',
-    tasks: ['js-syntax-1', 'js-logic-1', 'js-loops-1', 'js-functions-1', 'js-recursion-1', 'js-oop-1']
+    id: "programming-foundations",
+    title: "Programming Foundations",
+    description:
+      "Start your journey here. Learn the core syntax and logic that powers all software.",
+    icon: "Terminal",
+    color: "emerald",
+
+    tasks: [
+      "programming-foundations-task-1",
+      "programming-foundations-task-2",
+      "programming-foundations-task-3",
+      "programming-foundations-task-4",
+      "programming-foundations-task-5",
+      "programming-foundations-task-6",
+      "programming-foundations-task-7",
+      "programming-foundations-task-8",
+      "programming-foundations-task-9",
+      "programming-foundations-task-10",
+    ],
   },
   {
-    id: 'backend-basics',
-    title: 'Backend Fundamentals',
-    description: 'Master the core of server-side logic, routing, and data persistence.',
-    icon: 'Server',
-    color: 'sky',
-    tasks: ['hello-world-api', 'db-connect-1', 'middleware-logger']
+    id: "backend-basics",
+    title: "Backend Fundamentals",
+    description:
+      "Master the core of server-side logic, routing, and data persistence.",
+    icon: "Server",
+    color: "sky",
+
+    tasks: [
+      "backend-basics-task-1",
+      "backend-basics-task-2",
+      "backend-basics-task-3",
+      "backend-basics-task-4",
+      "backend-basics-task-5",
+      "backend-basics-task-6",
+      "backend-basics-task-7",
+      "backend-basics-task-8",
+      "backend-basics-task-9",
+      "backend-basics-task-10",
+    ],
   },
   {
-    id: 'frontend-mastery',
-    title: 'Frontend Mastery',
-    description: 'Build responsive, high-performance user interfaces with React and Tailwind.',
-    icon: 'Layout',
-    color: 'pink',
-    tasks: ['react-component-1', 'react-state-1']
+    id: "frontend-mastery",
+    title: "Frontend Mastery",
+    description:
+      "Build responsive, high-performance user interfaces with React and Tailwind.",
+    icon: "Layout",
+    color: "pink",
+
+    tasks: [
+      "frontend-mastery-task-1",
+      "frontend-mastery-task-2",
+      "frontend-mastery-task-3",
+      "frontend-mastery-task-4",
+      "frontend-mastery-task-5",
+      "frontend-mastery-task-6",
+      "frontend-mastery-task-7",
+      "frontend-mastery-task-8",
+      "frontend-mastery-task-9",
+      "frontend-mastery-task-10",
+    ],
   },
   {
-    id: 'database-design',
-    title: 'Database Architecture',
-    description: 'Learn to design efficient schemas, optimize queries, and manage data at scale.',
-    icon: 'Database',
-    color: 'amber',
-    tasks: ['schema-design-1', 'query-optimization-1']
+    id: "database-design",
+    title: "Database Architecture",
+    description:
+      "Learn to design efficient schemas, optimize queries, and manage data at scale.",
+    icon: "Database",
+    color: "amber",
+
+    tasks: [
+      "database-design-task-1",
+      "database-design-task-2",
+      "database-design-task-3",
+      "database-design-task-4",
+      "database-design-task-5",
+      "database-design-task-6",
+      "database-design-task-7",
+      "database-design-task-8",
+      "database-design-task-9",
+      "database-design-task-10",
+    ],
   },
   {
-    id: 'security-expert',
-    title: 'Security & Auth',
-    description: 'Deep dive into JWT, OAuth, and securing your backend systems.',
-    icon: 'Shield',
-    color: 'purple',
-    tasks: ['express-auth-1', 'password-hashing']
+    id: "security-expert",
+    title: "Security & Auth",
+    description:
+      "Deep dive into JWT, OAuth, and securing your backend systems.",
+    icon: "Shield",
+    color: "purple",
+
+    tasks: [
+      "security-expert-task-1",
+      "security-expert-task-2",
+      "security-expert-task-3",
+      "security-expert-task-4",
+      "security-expert-task-5",
+      "security-expert-task-6",
+      "security-expert-task-7",
+      "security-expert-task-8",
+      "security-expert-task-9",
+      "security-expert-task-10",
+    ],
   },
   {
-    id: 'devops-essentials',
-    title: 'DevOps & Cloud',
-    description: 'Automate deployments, manage infrastructure, and scale applications.',
-    icon: 'Cloud',
-    color: 'indigo',
-    tasks: ['docker-basics-1', 'ci-cd-pipeline-1']
+    id: "devops-essentials",
+    title: "DevOps & Cloud",
+    description:
+      "Automate deployments, manage infrastructure, and scale applications.",
+    icon: "Cloud",
+    color: "indigo",
+
+    tasks: [
+      "devops-essentials-task-1",
+      "devops-essentials-task-2",
+      "devops-essentials-task-3",
+      "devops-essentials-task-4",
+      "devops-essentials-task-5",
+      "devops-essentials-task-6",
+      "devops-essentials-task-7",
+      "devops-essentials-task-8",
+      "devops-essentials-task-9",
+      "devops-essentials-task-10",
+    ],
   },
   {
-    id: 'java-enterprise',
-    title: 'Java Enterprise Design',
-    description: 'Master enterprise patterns in Java. Learn to build scalable, professional backend systems.',
-    icon: 'Shield',
-    color: 'orange',
-    tasks: ['java-factory-pattern', 'java-adapter-pattern', 'java-observer-pattern']
-  }
+    id: "java-enterprise",
+    title: "Java Enterprise Design",
+    description:
+      "Master enterprise patterns in Java. Learn to build scalable, professional backend systems.",
+    icon: "Shield",
+    color: "orange",
+
+    tasks: [
+      "java-enterprise-task-1",
+      "java-enterprise-task-2",
+      "java-enterprise-task-3",
+      "java-enterprise-task-4",
+      "java-enterprise-task-5",
+      "java-enterprise-task-6",
+      "java-enterprise-task-7",
+      "java-enterprise-task-8",
+      "java-enterprise-task-9",
+      "java-enterprise-task-10",
+    ],
+  },
 ];
 
 export const ALL_TASKS: Task[] = [
   {
-    id: 'java-factory-pattern',
-    title: 'Java: Factory Method',
-    description: 'In Java enterprise apps, we never use "new" for complex objects. Use a Factory to create instances of NotificationService.',
-    difficulty: 'intermediate',
-    category: 'Design Patterns',
-    trackId: 'java-enterprise',
-    initialCode: `public interface Notification { void send(); }\n\n// TODO: Create a Factory class that returns EmailNotification or SMSNotification\n`,
+    id: "programming-foundations-task-1",
+    title: "Hello World & Variables",
+    description:
+      "Write your first program and learn how to store data in variables.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "programming-foundations",
+    initialCode:
+      "function main() {\
+  // TODO: Add your logic here\
+}\
+\
+main();",
     instructions: [
       {
-        title: 'The Factory Pattern',
-        content: 'The Factory Method pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate.'
-      }
-    ],
-    basics: [
-      {
-        title: 'Why use Factory?',
-        content: 'It promotes loose coupling by eliminating the need to bind application-specific classes into the code.'
-      }
-    ],
-    sender: {
-      name: 'Sarah Chen',
-      role: 'Lead Backend Engineer',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah'
-    },
-    subject: 'Architecture: Decoupling Creation',
-    priority: 'high',
-    visualType: 'architecture'
-  },
-  {
-    id: 'java-adapter-pattern',
-    title: 'Java: Structural Adapter',
-    description: 'We have a LegacyPrinter that uses printOld(). Adapt it to our new IPrinter interface that expects print().',
-    difficulty: 'intermediate',
-    category: 'Design Patterns',
-    trackId: 'java-enterprise',
-    initialCode: `class Legacy { void printOld() { ... } }\ninterface NewInterface { void print(); }\n\n// TODO: Create an Adapter class\n`,
-    instructions: [
-      {
-        title: 'The Adapter Pattern',
-        content: 'Adapter is a structural design pattern that allows objects with incompatible interfaces to collaborate.'
-      }
-    ],
-    basics: [
-      {
-        title: 'Real-world example',
-        content: 'Think of a power adapter. It lets you plug a US laptop into a European socket.'
-      }
-    ],
-    sender: {
-      name: 'Sarah Chen',
-      role: 'Lead Backend Engineer',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah'
-    },
-    subject: 'Architecture: Bridging Interfaces',
-    priority: 'medium',
-    visualType: 'logic'
-  },
-  {
-    id: 'java-observer-pattern',
-    title: 'Java: Behavioral Observer',
-    description: 'Implement a Subject that notifies multiple Observers when a stock price changes.',
-    difficulty: 'intermediate',
-    category: 'Design Patterns',
-    trackId: 'java-enterprise',
-    initialCode: `interface Observer { void update(float price); }\nclass StockSubject { \n  // TODO: Implement register, remove, and notify observers\n}\n`,
-    instructions: [
-      {
-        title: 'The Observer Pattern',
-        content: 'Observer is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.'
-      }
-    ],
-    basics: [
-      {
-        title: 'Event Handling',
-        content: 'This is the foundation of event-driven programming, common in GUIs and real-time systems.'
-      }
-    ],
-    sender: {
-      name: 'Sarah Chen',
-      role: 'Lead Backend Engineer',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah'
-    },
-    subject: 'Architecture: Reactive Systems',
-    priority: 'high',
-    visualType: 'memory'
-  },
-  {
-    id: 'js-syntax-1',
-    title: 'Variables & Data Types',
-    description: 'Welcome to the team! Before we build systems, we need to handle data. Your first task is to declare variables for a user profile.',
-    difficulty: 'beginner',
-    category: 'Syntax',
-    trackId: 'programming-foundations',
-    initialCode: `// TODO: Declare a variable 'userName' (string) and 'userAge' (number)\n\n`,
-    instructions: [
-      {
-        title: 'Declaring Variables',
-        content: 'Use `let` or `const` to declare variables. `let` is for values that change, `const` is for constants.'
-      }
-    ],
-    basics: [
-      {
-        title: 'What is a Variable?',
-        content: 'Think of a variable as a labeled box that holds a value. You can use the label to access the value later.'
-      }
-    ],
-    sender: {
-      name: 'Alex Rivera',
-      role: 'Junior Mentor',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Alex'
-    },
-    subject: 'Onboarding: Data Basics',
-    priority: 'low',
-    visualType: 'memory'
-  },
-  {
-    id: 'js-logic-1',
-    title: 'Making Decisions',
-    description: 'Our system needs to decide if a user is an adult. Implement a simple check.',
-    difficulty: 'beginner',
-    category: 'Logic',
-    trackId: 'programming-foundations',
-    initialCode: `function isAdult(age) {\n  // TODO: Return true if age is 18 or older, else false\n}\n`,
-    instructions: [
-      {
-        title: 'If/Else Statements',
-        content: 'Use `if (condition) { ... } else { ... }` to execute different code blocks based on a condition.'
-      }
-    ],
-    basics: [
-      {
-        title: 'Boolean Logic',
-        content: 'Conditions evaluate to either `true` or `false`. Comparison operators like `>=` or `==` help create these conditions.'
-      }
-    ],
-    sender: {
-      name: 'Alex Rivera',
-      role: 'Junior Mentor',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Alex'
-    },
-    subject: 'Logic: Age Verification',
-    priority: 'low',
-    visualType: 'logic'
-  },
-  {
-    id: 'js-loops-1',
-    title: 'Repeating Tasks',
-    description: 'We have a list of scores. We need to print each one to the console.',
-    difficulty: 'beginner',
-    category: 'Loops',
-    trackId: 'programming-foundations',
-    initialCode: `const scores = [85, 92, 78];\n\n// TODO: Use a loop to print each score\n`,
-    instructions: [
-      {
-        title: 'For Loops',
-        content: 'A `for` loop repeats a block of code a specific number of times. `for (let i = 0; i < array.length; i++)` is a common pattern.'
-      }
-    ],
-    basics: [
-      {
-        title: 'Why Loops?',
-        content: 'Loops save you from writing the same code over and over. They are perfect for processing lists (arrays).'
-      }
-    ],
-    sender: {
-      name: 'Alex Rivera',
-      role: 'Junior Mentor',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Alex'
-    },
-    subject: 'Automation: Processing Lists',
-    priority: 'medium',
-    visualType: 'logic'
-  },
-  {
-    id: 'js-functions-1',
-    title: 'Reusable Logic',
-    description: 'Create a function that calculates the total price after tax.',
-    difficulty: 'beginner',
-    category: 'Functions',
-    trackId: 'programming-foundations',
-    initialCode: `function calculateTotal(price, taxRate) {\n  // TODO: Return price + (price * taxRate)\n}\n`,
-    instructions: [
-      {
-        title: 'Defining Functions',
-        content: 'Functions are blocks of code designed to perform a particular task. They are executed when "called".'
-      }
-    ],
-    basics: [
-      {
-        title: 'Parameters & Return',
-        content: 'Parameters are inputs to the function. The `return` statement specifies the output value.'
-      }
-    ],
-    sender: {
-      name: 'Sarah Chen',
-      role: 'Lead Backend Engineer',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah'
-    },
-    subject: 'Refactoring: Pricing Logic',
-    priority: 'medium',
-    visualType: 'logic'
-  },
-  {
-    id: 'js-recursion-1',
-    title: 'Deep Thinking: Recursion',
-    description: 'Calculate the factorial of a number using recursion. This is a classic "programming thinking" challenge.',
-    difficulty: 'intermediate',
-    category: 'Recursion',
-    trackId: 'programming-foundations',
-    initialCode: `function factorial(n) {\n  // TODO: Implement recursive factorial\n  // Base case: if n is 0 or 1, return 1\n}\n`,
-    instructions: [
-      {
-        title: 'Recursive Calls',
-        content: 'Recursion is when a function calls itself. You MUST have a base case to stop the recursion!'
-      }
-    ],
-    basics: [
-      {
-        title: 'The Call Stack',
-        content: 'Every time a function is called, it\'s added to the "stack". Recursion creates a chain of these calls.'
-      }
-    ],
-    sender: {
-      name: 'Marcus Thorne',
-      role: 'CTO',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus'
-    },
-    subject: 'Algorithms: Factorial Implementation',
-    priority: 'high',
-    visualType: 'memory'
-  },
-  {
-    id: 'js-oop-1',
-    title: 'Objects & Classes',
-    description: 'Model a "User" using a class. It should have a constructor and a method to greet.',
-    difficulty: 'intermediate',
-    category: 'OOP',
-    trackId: 'programming-foundations',
-    initialCode: `class User {\n  // TODO: Implement constructor and greet() method\n}\n`,
-    instructions: [
-      {
-        title: 'Class Syntax',
-        content: 'Classes are templates for creating objects. Use `constructor` to initialize properties.'
-      }
-    ],
-    basics: [
-      {
-        title: 'Object Oriented Programming',
-        content: 'OOP is a style of programming where you organize code into "objects" that represent real-world things.'
-      }
-    ],
-    sender: {
-      name: 'Marcus Thorne',
-      role: 'CTO',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus'
-    },
-    subject: 'Architecture: User Modeling',
-    priority: 'high',
-    visualType: 'architecture'
-  },
-  {
-    id: 'hello-world-api',
-    title: 'Your First Express Route',
-    description: 'Every journey starts with a single route. Let\'s create a simple GET endpoint that returns a greeting.',
-    difficulty: 'beginner',
-    category: 'API',
-    trackId: 'backend-basics',
-    initialCode: `const express = require('express');\nconst app = express();\n\n// TODO: Create a GET route at '/hello' that returns { message: "Hello World" }\n\n`,
-    instructions: [
-      {
-        title: 'The Basics of Express',
-        content: 'Express is a minimal and flexible Node.js web application framework. Routes are used to define how your application responds to client requests.'
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
       },
       {
-        title: 'Creating a Route',
-        content: 'Use `app.get(path, callback)` to define a GET route. The callback takes `req` (request) and `res` (response) objects.'
-      }
-    ],
-    basics: [
-      {
-        title: 'What is an API?',
-        content: 'An Application Programming Interface (API) is a set of rules that allow different software applications to communicate with each other.'
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
       },
       {
-        title: 'HTTP Methods',
-        content: 'GET is used to request data from a specified resource. POST is used to send data to a server to create/update a resource.'
-      }
-    ],
-    sender: {
-      name: 'Sarah Chen',
-      role: 'Lead Backend Engineer',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah'
-    },
-    subject: 'New Feature: Welcome Endpoint',
-    priority: 'medium',
-    visualType: 'architecture'
-  },
-  {
-    id: 'db-connect-1',
-    title: 'Connecting to MongoDB',
-    description: 'Learn how to establish a secure connection to a MongoDB database using Mongoose.',
-    difficulty: 'beginner',
-    category: 'Database',
-    trackId: 'backend-basics',
-    initialCode: `const mongoose = require('mongoose');\n\n// TODO: Connect to mongodb://localhost:27017/stackmaster\n// and log "Connected" on success\n\n`,
-    instructions: [
-      {
-        title: 'What is Mongoose?',
-        content: 'Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js.'
-      }
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
     ],
     basics: [
       {
-        title: 'Databases 101',
-        content: 'A database is an organized collection of structured information, or data, typically stored electronically in a computer system.'
-      }
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
     ],
     sender: {
-      name: 'Marcus Thorne',
-      role: 'CTO',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus'
+      name: "Sarah Chen",
+      role: "Lead Backend Engineer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
     },
-    subject: 'Urgent: Database Integration',
-    priority: 'high',
-    visualType: 'architecture'
+    subject: "Programming Foundations Assignment #1: Hello World & Variables",
+    priority: "urgent",
+    visualType: "memory",
   },
   {
-    id: 'react-component-1',
-    title: 'Building a Profile Card',
-    description: 'Create a reusable React component that displays user information with a clean, modern design.',
-    difficulty: 'beginner',
-    category: 'Frontend',
-    trackId: 'frontend-mastery',
-    initialCode: `import React from 'react';\n\n// TODO: Create a ProfileCard component that takes 'name', 'role', and 'avatar' as props\n\n`,
+    id: "programming-foundations-task-2",
+    title: "Control Flow",
+    description: "Use if/else statements to make decisions in your code.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "programming-foundations",
+    initialCode:
+      "function main() {\
+  // TODO: Add your logic here\
+}\
+\
+main();",
     instructions: [
       {
-        title: 'React Components',
-        content: 'Components are the building blocks of any React application. They are independent and reusable bits of code.'
-      }
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
     ],
     basics: [
       {
-        title: 'JSX Basics',
-        content: 'JSX is a syntax extension to JavaScript. It is used with React to describe what the UI should look like.'
-      }
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
     ],
     sender: {
-      name: 'Elena Rodriguez',
-      role: 'Senior UI Designer',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Elena'
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
     },
-    subject: 'Design System: Profile Components',
-    priority: 'low',
-    visualType: 'architecture'
+    subject: "Programming Foundations Assignment #2: Control Flow",
+    priority: "urgent",
+    visualType: "architecture",
   },
   {
-    id: 'middleware-logger',
-    title: 'Custom Logger Middleware',
-    description: 'Middleware functions are functions that have access to the request object, the response object, and the next middleware function.',
-    difficulty: 'intermediate',
-    category: 'Middleware',
-    trackId: 'backend-basics',
-    initialCode: `function logger(req, res, next) {\n  // TODO: Log the request method and URL\n  // Then call next()\n}\n`,
+    id: "programming-foundations-task-3",
+    title: "Loops & Iteration",
+    description: "Repeat actions using for and while loops.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "programming-foundations",
+    initialCode:
+      "function main() {\
+  // TODO: Add your logic here\
+}\
+\
+main();",
     instructions: [
       {
-        title: 'Middleware Concept',
-        content: 'Middleware can execute any code, make changes to the request and response objects, and end the request-response cycle.'
-      }
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
     ],
     basics: [
       {
-        title: 'What is Middleware?',
-        content: 'Middleware is software that lies between an operating system and the applications running on it.'
-      }
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
     ],
     sender: {
-      name: 'Sarah Chen',
-      role: 'Lead Backend Engineer',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah'
+      name: "David Kim",
+      role: "DevOps Lead",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
     },
-    subject: 'Internal Tooling: Request Logging',
-    priority: 'medium',
-    visualType: 'architecture'
+    subject: "Programming Foundations Assignment #3: Loops & Iteration",
+    priority: "high",
+    visualType: "architecture",
   },
   {
-    id: 'schema-design-1',
-    title: 'User Profile Schema',
-    description: 'Design a Mongoose schema for a user profile that includes validation and default values.',
-    difficulty: 'intermediate',
-    category: 'Database',
-    trackId: 'database-design',
-    initialCode: `const mongoose = require('mongoose');\n\nconst userSchema = new mongoose.Schema({\n  // TODO: Define name, email, and age fields\n});\n`,
+    id: "programming-foundations-task-4",
+    title: "Functions & Scope",
+    description:
+      "Group code into reusable functions and understand variable scope.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "programming-foundations",
+    initialCode:
+      "function main() {\
+  // TODO: Add your logic here\
+}\
+\
+main();",
     instructions: [
       {
-        title: 'Mongoose Schemas',
-        content: 'Everything in Mongoose starts with a Schema. Each schema maps to a MongoDB collection and defines the shape of the documents within that collection.'
-      }
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
     ],
     basics: [
       {
-        title: 'Schema Validation',
-        content: 'Validation is defined in the SchemaType. You can use built-in validators or create custom ones.'
-      }
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
     ],
     sender: {
-      name: 'Marcus Thorne',
-      role: 'CTO',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus'
+      name: "Marcus Thorne",
+      role: "CTO",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus",
     },
-    subject: 'Data Integrity: User Schema',
-    priority: 'high',
-    visualType: 'architecture'
+    subject: "Programming Foundations Assignment #4: Functions & Scope",
+    priority: "low",
+    visualType: "logic",
   },
   {
-    id: 'ci-cd-pipeline-1',
-    title: 'GitHub Actions Workflow',
-    description: 'Create a simple GitHub Actions workflow that runs tests on every push to the main branch.',
-    difficulty: 'advanced',
-    category: 'DevOps',
-    trackId: 'devops-essentials',
-    initialCode: `name: Node.js CI\n\non:\n  push:\n    branches: [ "main" ]\n\njobs:\n  build:\n    # TODO: Define the steps to run tests\n`,
+    id: "programming-foundations-task-5",
+    title: "Arrays & Lists",
+    description: "Store collections of data in arrays and iterate over them.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "programming-foundations",
+    initialCode:
+      "function main() {\
+  // TODO: Add your logic here\
+}\
+\
+main();",
     instructions: [
       {
-        title: 'CI/CD Basics',
-        content: 'Continuous Integration (CI) and Continuous Deployment (CD) are practices that automate the building, testing, and deployment of applications.'
-      }
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
     ],
     basics: [
       {
-        title: 'GitHub Actions',
-        content: 'GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD.'
-      }
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
     ],
     sender: {
-      name: 'David Kim',
-      role: 'DevOps Lead',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=David'
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
     },
-    subject: 'Automation: CI/CD Pipeline',
-    priority: 'urgent',
-    visualType: 'architecture'
+    subject: "Programming Foundations Assignment #5: Arrays & Lists",
+    priority: "urgent",
+    visualType: "architecture",
   },
   {
-    id: 'react-state-1',
-    title: 'Managing State',
-    description: 'Create a counter component that uses the `useState` hook to track a number.',
-    difficulty: 'beginner',
-    category: 'Frontend',
-    trackId: 'frontend-mastery',
-    initialCode: `import React, { useState } from 'react';\n\nfunction Counter() {\n  // TODO: Implement a counter with increment/decrement buttons\n}\n`,
+    id: "programming-foundations-task-6",
+    title: "Dictionaries & Objects",
+    description: "Use key-value pairs to store complex data structures.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "programming-foundations",
+    initialCode:
+      "function main() {\
+  // TODO: Add your logic here\
+}\
+\
+main();",
     instructions: [
       {
-        title: 'useState Hook',
-        content: 'Hooks allow you to use state and other React features without writing a class.'
-      }
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
     ],
     basics: [
       {
-        title: 'What is State?',
-        content: 'State is data that changes over time in your application. When state changes, React re-renders the component.'
-      }
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
     ],
     sender: {
-      name: 'Elena Rodriguez',
-      role: 'Senior UI Designer',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Elena'
+      name: "Sarah Chen",
+      role: "Lead Backend Engineer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
     },
-    subject: 'Interactive UI: Counter Component',
-    priority: 'medium',
-    visualType: 'logic'
+    subject: "Programming Foundations Assignment #6: Dictionaries & Objects",
+    priority: "low",
+    visualType: "logic",
   },
   {
-    id: 'query-optimization-1',
-    title: 'Optimizing MongoDB Queries',
-    description: 'Improve the performance of a query by adding an index to the "email" field.',
-    difficulty: 'intermediate',
-    category: 'Database',
-    trackId: 'database-design',
-    initialCode: `const userSchema = new mongoose.Schema({\n  email: String,\n  name: String\n});\n\n// TODO: Add an index to the email field\n`,
+    id: "programming-foundations-task-7",
+    title: "Object-Oriented Basics",
+    description: "Create classes and objects to model real-world entities.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "programming-foundations",
+    initialCode:
+      "function main() {\
+  // TODO: Add your logic here\
+}\
+\
+main();",
     instructions: [
       {
-        title: 'Database Indexing',
-        content: 'Indexes support the efficient execution of queries in MongoDB. Without indexes, MongoDB must perform a collection scan.'
-      }
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
     ],
     basics: [
       {
-        title: 'Why Index?',
-        content: 'Indexing makes data retrieval much faster, especially as your database grows.'
-      }
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
     ],
     sender: {
-      name: 'Marcus Thorne',
-      role: 'CTO',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus'
+      name: "Marcus Thorne",
+      role: "CTO",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus",
     },
-    subject: 'Performance: Query Indexing',
-    priority: 'high',
-    visualType: 'architecture'
+    subject: "Programming Foundations Assignment #7: Object-Oriented Basics",
+    priority: "low",
+    visualType: "logic",
   },
   {
-    id: 'express-auth-1',
-    title: 'JWT Authentication',
-    description: 'Implement a middleware that verifies a JSON Web Token (JWT) in the request header.',
-    difficulty: 'advanced',
-    category: 'Security',
-    trackId: 'security-expert',
-    initialCode: `const jwt = require('jsonwebtoken');\n\nfunction verifyToken(req, res, next) {\n  // TODO: Extract token from header and verify it\n}\n`,
+    id: "programming-foundations-task-8",
+    title: "Error Handling",
+    description: "Use try/catch blocks to gracefully handle runtime errors.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "programming-foundations",
+    initialCode:
+      "function main() {\
+  // TODO: Add your logic here\
+}\
+\
+main();",
     instructions: [
       {
-        title: 'JWT Basics',
-        content: 'JSON Web Token is an open standard that defines a compact and self-contained way for securely transmitting information between parties.'
-      }
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
     ],
     basics: [
       {
-        title: 'Authentication vs Authorization',
-        content: 'Authentication is verifying who you are. Authorization is verifying what you have access to.'
-      }
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
     ],
     sender: {
-      name: 'Sarah Chen',
-      role: 'Lead Backend Engineer',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah'
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
     },
-    subject: 'Security: Token Verification',
-    priority: 'urgent',
-    visualType: 'architecture'
+    subject: "Programming Foundations Assignment #8: Error Handling",
+    priority: "low",
+    visualType: "memory",
   },
   {
-    id: 'password-hashing',
-    title: 'Secure Password Storage',
-    description: 'Use bcrypt to hash a user password before saving it to the database.',
-    difficulty: 'intermediate',
-    category: 'Security',
-    trackId: 'security-expert',
-    initialCode: `const bcrypt = require('bcrypt');\n\nasync function hashPassword(password) {\n  // TODO: Hash the password with a salt round of 10\n}\n`,
+    id: "programming-foundations-task-9",
+    title: "File I/O",
+    description: "Read from and write data to files on the filesystem.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "programming-foundations",
+    initialCode:
+      "function main() {\
+  // TODO: Add your logic here\
+}\
+\
+main();",
     instructions: [
       {
-        title: 'Hashing Passwords',
-        content: 'Never store passwords in plain text! Hashing is a one-way process that turns a password into a random string.'
-      }
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
     ],
     basics: [
       {
-        title: 'Salting',
-        content: 'A salt is random data that is used as an additional input to a one-way function that "hashes" data.'
-      }
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
     ],
     sender: {
-      name: 'Sarah Chen',
-      role: 'Lead Backend Engineer',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah'
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
     },
-    subject: 'Security: Password Hashing',
-    priority: 'high',
-    visualType: 'logic'
-  }
+    subject: "Programming Foundations Assignment #9: File I/O",
+    priority: "high",
+    visualType: "architecture",
+  },
+  {
+    id: "programming-foundations-task-10",
+    title: "Basic Algorithms",
+    description: "Implement simple sorting and searching algorithms.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "programming-foundations",
+    initialCode:
+      "function main() {\
+  // TODO: Add your logic here\
+}\
+\
+main();",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    },
+    subject: "Programming Foundations Assignment #10: Basic Algorithms",
+    priority: "medium",
+    visualType: "architecture",
+  },
+  {
+    id: "backend-basics-task-1",
+    title: "Setup HTTP Server",
+    description: "Initialize a basic web server using Node.js and Express.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "backend-basics",
+    initialCode:
+      "const express = require('express');\
+const app = express();\
+\
+app.listen(3000, () => {\
+  console.log('Server running');\
+});",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    },
+    subject: "Backend Fundamentals Assignment #1: Setup HTTP Server",
+    priority: "high",
+    visualType: "architecture",
+  },
+  {
+    id: "backend-basics-task-2",
+    title: "Routing Implementation",
+    description:
+      "Create RESTful routes for GET, POST, PUT, and DELETE requests.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "backend-basics",
+    initialCode:
+      "const express = require('express');\
+const app = express();\
+\
+app.listen(3000, () => {\
+  console.log('Server running');\
+});",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Marcus Thorne",
+      role: "CTO",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus",
+    },
+    subject: "Backend Fundamentals Assignment #2: Routing Implementation",
+    priority: "medium",
+    visualType: "architecture",
+  },
+  {
+    id: "backend-basics-task-3",
+    title: "Middleware Basics",
+    description: "Write middleware to log incoming requests.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "backend-basics",
+    initialCode:
+      "const express = require('express');\
+const app = express();\
+\
+app.listen(3000, () => {\
+  console.log('Server running');\
+});",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "David Kim",
+      role: "DevOps Lead",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    },
+    subject: "Backend Fundamentals Assignment #3: Middleware Basics",
+    priority: "urgent",
+    visualType: "architecture",
+  },
+  {
+    id: "backend-basics-task-4",
+    title: "Parsing Request Data",
+    description: "Handle JSON body payloads and URL parameters.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "backend-basics",
+    initialCode:
+      "const express = require('express');\
+const app = express();\
+\
+app.listen(3000, () => {\
+  console.log('Server running');\
+});",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    },
+    subject: "Backend Fundamentals Assignment #4: Parsing Request Data",
+    priority: "medium",
+    visualType: "logic",
+  },
+  {
+    id: "backend-basics-task-5",
+    title: "Database Connection",
+    description: "Connect your application to a SQL or NoSQL database.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "backend-basics",
+    initialCode:
+      "const express = require('express');\
+const app = express();\
+\
+app.listen(3000, () => {\
+  console.log('Server running');\
+});",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Marcus Thorne",
+      role: "CTO",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus",
+    },
+    subject: "Backend Fundamentals Assignment #5: Database Connection",
+    priority: "medium",
+    visualType: "memory",
+  },
+  {
+    id: "backend-basics-task-6",
+    title: "CRUD Operations",
+    description:
+      "Implement Create, Read, Update, and Delete logic for a resource.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "backend-basics",
+    initialCode:
+      "const express = require('express');\
+const app = express();\
+\
+app.listen(3000, () => {\
+  console.log('Server running');\
+});",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Sarah Chen",
+      role: "Lead Backend Engineer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+    },
+    subject: "Backend Fundamentals Assignment #6: CRUD Operations",
+    priority: "medium",
+    visualType: "logic",
+  },
+  {
+    id: "backend-basics-task-7",
+    title: "Input Validation",
+    description: "Sanitize and validate user inputs before processing.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "backend-basics",
+    initialCode:
+      "const express = require('express');\
+const app = express();\
+\
+app.listen(3000, () => {\
+  console.log('Server running');\
+});",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "Backend Fundamentals Assignment #7: Input Validation",
+    priority: "high",
+    visualType: "architecture",
+  },
+  {
+    id: "backend-basics-task-8",
+    title: "Authentication Layer",
+    description: "Add basic authentication to protect certain endpoints.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "backend-basics",
+    initialCode:
+      "const express = require('express');\
+const app = express();\
+\
+app.listen(3000, () => {\
+  console.log('Server running');\
+});",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Marcus Thorne",
+      role: "CTO",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus",
+    },
+    subject: "Backend Fundamentals Assignment #8: Authentication Layer",
+    priority: "urgent",
+    visualType: "logic",
+  },
+  {
+    id: "backend-basics-task-9",
+    title: "Rate Limiting",
+    description: "Implement a rate limiter to prevent abuse API abuse.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "backend-basics",
+    initialCode:
+      "const express = require('express');\
+const app = express();\
+\
+app.listen(3000, () => {\
+  console.log('Server running');\
+});",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "David Kim",
+      role: "DevOps Lead",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    },
+    subject: "Backend Fundamentals Assignment #9: Rate Limiting",
+    priority: "high",
+    visualType: "architecture",
+  },
+  {
+    id: "backend-basics-task-10",
+    title: "Deployment Prep",
+    description:
+      "Setup environment variables and error handling for production.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "backend-basics",
+    initialCode:
+      "const express = require('express');\
+const app = express();\
+\
+app.listen(3000, () => {\
+  console.log('Server running');\
+});",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "David Kim",
+      role: "DevOps Lead",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    },
+    subject: "Backend Fundamentals Assignment #10: Deployment Prep",
+    priority: "high",
+    visualType: "logic",
+  },
+  {
+    id: "frontend-mastery-task-1",
+    title: "React App Init",
+    description:
+      "Bootstrap a new React application and explore its file structure.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "frontend-mastery",
+    initialCode:
+      "import React from 'react';\
+\
+export default function Component() {\
+  return (\
+    <div>\
+      {/* TODO: Add implementation */}\
+    </div>\
+  );\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    },
+    subject: "Frontend Mastery Assignment #1: React App Init",
+    priority: "medium",
+    visualType: "logic",
+  },
+  {
+    id: "frontend-mastery-task-2",
+    title: "Component Architecture",
+    description: "Break down a complex UI into smaller, reusable components.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "frontend-mastery",
+    initialCode:
+      "import React from 'react';\
+\
+export default function Component() {\
+  return (\
+    <div>\
+      {/* TODO: Add implementation */}\
+    </div>\
+  );\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "Frontend Mastery Assignment #2: Component Architecture",
+    priority: "urgent",
+    visualType: "memory",
+  },
+  {
+    id: "frontend-mastery-task-3",
+    title: "State Management",
+    description: "Use the useState hook to manage local component state.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "frontend-mastery",
+    initialCode:
+      "import React from 'react';\
+\
+export default function Component() {\
+  return (\
+    <div>\
+      {/* TODO: Add implementation */}\
+    </div>\
+  );\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "David Kim",
+      role: "DevOps Lead",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    },
+    subject: "Frontend Mastery Assignment #3: State Management",
+    priority: "high",
+    visualType: "memory",
+  },
+  {
+    id: "frontend-mastery-task-4",
+    title: "Effects & Data Fetching",
+    description: "Use useEffect to fetch external data from an API.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "frontend-mastery",
+    initialCode:
+      "import React from 'react';\
+\
+export default function Component() {\
+  return (\
+    <div>\
+      {/* TODO: Add implementation */}\
+    </div>\
+  );\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "Frontend Mastery Assignment #4: Effects & Data Fetching",
+    priority: "low",
+    visualType: "memory",
+  },
+  {
+    id: "frontend-mastery-task-5",
+    title: "React Routing",
+    description: "Implement multi-page navigation using React Router.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "frontend-mastery",
+    initialCode:
+      "import React from 'react';\
+\
+export default function Component() {\
+  return (\
+    <div>\
+      {/* TODO: Add implementation */}\
+    </div>\
+  );\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Marcus Thorne",
+      role: "CTO",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus",
+    },
+    subject: "Frontend Mastery Assignment #5: React Routing",
+    priority: "high",
+    visualType: "logic",
+  },
+  {
+    id: "frontend-mastery-task-6",
+    title: "Context API",
+    description: "Manage global application state using React Context.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "frontend-mastery",
+    initialCode:
+      "import React from 'react';\
+\
+export default function Component() {\
+  return (\
+    <div>\
+      {/* TODO: Add implementation */}\
+    </div>\
+  );\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "Frontend Mastery Assignment #6: Context API",
+    priority: "medium",
+    visualType: "memory",
+  },
+  {
+    id: "frontend-mastery-task-7",
+    title: "Tailwind CSS Styling",
+    description: "Style your components using utility classes from Tailwind.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "frontend-mastery",
+    initialCode:
+      "import React from 'react';\
+\
+export default function Component() {\
+  return (\
+    <div>\
+      {/* TODO: Add implementation */}\
+    </div>\
+  );\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    },
+    subject: "Frontend Mastery Assignment #7: Tailwind CSS Styling",
+    priority: "medium",
+    visualType: "memory",
+  },
+  {
+    id: "frontend-mastery-task-8",
+    title: "Forms & Validation",
+    description: "Build controlled forms and handle validation errors.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "frontend-mastery",
+    initialCode:
+      "import React from 'react';\
+\
+export default function Component() {\
+  return (\
+    <div>\
+      {/* TODO: Add implementation */}\
+    </div>\
+  );\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "Frontend Mastery Assignment #8: Forms & Validation",
+    priority: "urgent",
+    visualType: "architecture",
+  },
+  {
+    id: "frontend-mastery-task-9",
+    title: "Custom Hooks",
+    description: "Extract reusable logic into custom React hooks.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "frontend-mastery",
+    initialCode:
+      "import React from 'react';\
+\
+export default function Component() {\
+  return (\
+    <div>\
+      {/* TODO: Add implementation */}\
+    </div>\
+  );\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "Frontend Mastery Assignment #9: Custom Hooks",
+    priority: "high",
+    visualType: "architecture",
+  },
+  {
+    id: "frontend-mastery-task-10",
+    title: "Performance Optimization",
+    description:
+      "Improve app performance using memoization and code splitting.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "frontend-mastery",
+    initialCode:
+      "import React from 'react';\
+\
+export default function Component() {\
+  return (\
+    <div>\
+      {/* TODO: Add implementation */}\
+    </div>\
+  );\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    },
+    subject: "Frontend Mastery Assignment #10: Performance Optimization",
+    priority: "urgent",
+    visualType: "architecture",
+  },
+  {
+    id: "database-design-task-1",
+    title: "Schema Modeling",
+    description: "Design tables and relationships for a new application.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "database-design",
+    initialCode:
+      "-- Write your SQL query here\
+SELECT * FROM users;",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "Database Architecture Assignment #1: Schema Modeling",
+    priority: "low",
+    visualType: "architecture",
+  },
+  {
+    id: "database-design-task-2",
+    title: "Keys & Constraints",
+    description: "Define primary keys, foreign keys, and unique constraints.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "database-design",
+    initialCode:
+      "-- Write your SQL query here\
+SELECT * FROM users;",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    },
+    subject: "Database Architecture Assignment #2: Keys & Constraints",
+    priority: "high",
+    visualType: "architecture",
+  },
+  {
+    id: "database-design-task-3",
+    title: "Normalization",
+    description: "Apply 1NF to 3NF rules to reduce data redundancy.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "database-design",
+    initialCode:
+      "-- Write your SQL query here\
+SELECT * FROM users;",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "David Kim",
+      role: "DevOps Lead",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    },
+    subject: "Database Architecture Assignment #3: Normalization",
+    priority: "medium",
+    visualType: "memory",
+  },
+  {
+    id: "database-design-task-4",
+    title: "Complex Joins",
+    description: "Write SQL queries using INNER, LEFT, and FULL joins.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "database-design",
+    initialCode:
+      "-- Write your SQL query here\
+SELECT * FROM users;",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    },
+    subject: "Database Architecture Assignment #4: Complex Joins",
+    priority: "urgent",
+    visualType: "memory",
+  },
+  {
+    id: "database-design-task-5",
+    title: "Database Migrations",
+    description: "Create scripts to version your database schema.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "database-design",
+    initialCode:
+      "-- Write your SQL query here\
+SELECT * FROM users;",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    },
+    subject: "Database Architecture Assignment #5: Database Migrations",
+    priority: "low",
+    visualType: "logic",
+  },
+  {
+    id: "database-design-task-6",
+    title: "Indexing Strategies",
+    description: "Add indexes to speed up frequently queried columns.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "database-design",
+    initialCode:
+      "-- Write your SQL query here\
+SELECT * FROM users;",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Sarah Chen",
+      role: "Lead Backend Engineer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+    },
+    subject: "Database Architecture Assignment #6: Indexing Strategies",
+    priority: "medium",
+    visualType: "architecture",
+  },
+  {
+    id: "database-design-task-7",
+    title: "Subqueries & CTEs",
+    description: "Use Common Table Expressions to simplify complex queries.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "database-design",
+    initialCode:
+      "-- Write your SQL query here\
+SELECT * FROM users;",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "David Kim",
+      role: "DevOps Lead",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    },
+    subject: "Database Architecture Assignment #7: Subqueries & CTEs",
+    priority: "low",
+    visualType: "architecture",
+  },
+  {
+    id: "database-design-task-8",
+    title: "Transactions",
+    description: "Ensure data integrity using ACID-compliant transactions.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "database-design",
+    initialCode:
+      "-- Write your SQL query here\
+SELECT * FROM users;",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "David Kim",
+      role: "DevOps Lead",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    },
+    subject: "Database Architecture Assignment #8: Transactions",
+    priority: "high",
+    visualType: "memory",
+  },
+  {
+    id: "database-design-task-9",
+    title: "NoSQL Design",
+    description: "Understand document-oriented design patterns.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "database-design",
+    initialCode:
+      "-- Write your SQL query here\
+SELECT * FROM users;",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    },
+    subject: "Database Architecture Assignment #9: NoSQL Design",
+    priority: "urgent",
+    visualType: "memory",
+  },
+  {
+    id: "database-design-task-10",
+    title: "Cache Management",
+    description: "Implement Redis to cache expensive query results.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "database-design",
+    initialCode:
+      "-- Write your SQL query here\
+SELECT * FROM users;",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Sarah Chen",
+      role: "Lead Backend Engineer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+    },
+    subject: "Database Architecture Assignment #10: Cache Management",
+    priority: "high",
+    visualType: "logic",
+  },
+  {
+    id: "security-expert-task-1",
+    title: "Password Hashing",
+    description: "Securely store passwords using bcrypt or Argon2.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "security-expert",
+    initialCode:
+      "function secureData(data) {\
+  // TODO: Implement security measures\
+  return data;\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Marcus Thorne",
+      role: "CTO",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus",
+    },
+    subject: "Security & Auth Assignment #1: Password Hashing",
+    priority: "medium",
+    visualType: "logic",
+  },
+  {
+    id: "security-expert-task-2",
+    title: "JWT Implementation",
+    description: "Generate and verify JSON Web Tokens for stateless auth.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "security-expert",
+    initialCode:
+      "function secureData(data) {\
+  // TODO: Implement security measures\
+  return data;\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    },
+    subject: "Security & Auth Assignment #2: JWT Implementation",
+    priority: "urgent",
+    visualType: "logic",
+  },
+  {
+    id: "security-expert-task-3",
+    title: "OAuth Integration",
+    description:
+      "Allow users to sign in using third-party providers (Google/GitHub).",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "security-expert",
+    initialCode:
+      "function secureData(data) {\
+  // TODO: Implement security measures\
+  return data;\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    },
+    subject: "Security & Auth Assignment #3: OAuth Integration",
+    priority: "medium",
+    visualType: "architecture",
+  },
+  {
+    id: "security-expert-task-4",
+    title: "CORS Configuration",
+    description: "Configure Cross-Origin Resource Sharing safely.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "security-expert",
+    initialCode:
+      "function secureData(data) {\
+  // TODO: Implement security measures\
+  return data;\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "Security & Auth Assignment #4: CORS Configuration",
+    priority: "low",
+    visualType: "logic",
+  },
+  {
+    id: "security-expert-task-5",
+    title: "SQL Injection Prevention",
+    description: "Use parameterized queries to prevent SQLi attacks.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "security-expert",
+    initialCode:
+      "function secureData(data) {\
+  // TODO: Implement security measures\
+  return data;\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "David Kim",
+      role: "DevOps Lead",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    },
+    subject: "Security & Auth Assignment #5: SQL Injection Prevention",
+    priority: "low",
+    visualType: "logic",
+  },
+  {
+    id: "security-expert-task-6",
+    title: "XSS Protection",
+    description: "Sanitize inputs to prevent Cross-Site Scripting.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "security-expert",
+    initialCode:
+      "function secureData(data) {\
+  // TODO: Implement security measures\
+  return data;\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    },
+    subject: "Security & Auth Assignment #6: XSS Protection",
+    priority: "low",
+    visualType: "architecture",
+  },
+  {
+    id: "security-expert-task-7",
+    title: "CSRF Tokens",
+    description: "Protect forms with Cross-Site Request Forgery tokens.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "security-expert",
+    initialCode:
+      "function secureData(data) {\
+  // TODO: Implement security measures\
+  return data;\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "Security & Auth Assignment #7: CSRF Tokens",
+    priority: "low",
+    visualType: "logic",
+  },
+  {
+    id: "security-expert-task-8",
+    title: "Role-Based Access Control",
+    description: "Implement RBAC to restrict user permissions.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "security-expert",
+    initialCode:
+      "function secureData(data) {\
+  // TODO: Implement security measures\
+  return data;\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "David Kim",
+      role: "DevOps Lead",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    },
+    subject: "Security & Auth Assignment #8: Role-Based Access Control",
+    priority: "urgent",
+    visualType: "logic",
+  },
+  {
+    id: "security-expert-task-9",
+    title: "Secure Headers",
+    description: "Use Helmet.js to enforce secure HTTP headers.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "security-expert",
+    initialCode:
+      "function secureData(data) {\
+  // TODO: Implement security measures\
+  return data;\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "Security & Auth Assignment #9: Secure Headers",
+    priority: "urgent",
+    visualType: "logic",
+  },
+  {
+    id: "security-expert-task-10",
+    title: "Audit Logging",
+    description: "Track sensitive actions by maintaining an audit log.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "security-expert",
+    initialCode:
+      "function secureData(data) {\
+  // TODO: Implement security measures\
+  return data;\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    },
+    subject: "Security & Auth Assignment #10: Audit Logging",
+    priority: "urgent",
+    visualType: "memory",
+  },
+  {
+    id: "devops-essentials-task-1",
+    title: "Containerization",
+    description: "Write a Dockerfile to containerize a web application.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "devops-essentials",
+    initialCode:
+      "# Define your configuration here\
+version: '3'\
+services:\
+  web:\
+    image: node:alpine",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "DevOps & Cloud Assignment #1: Containerization",
+    priority: "urgent",
+    visualType: "memory",
+  },
+  {
+    id: "devops-essentials-task-2",
+    title: "Docker Compose",
+    description:
+      "Orchestrate multi-container environments using docker-compose.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "devops-essentials",
+    initialCode:
+      "# Define your configuration here\
+version: '3'\
+services:\
+  web:\
+    image: node:alpine",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "DevOps & Cloud Assignment #2: Docker Compose",
+    priority: "low",
+    visualType: "architecture",
+  },
+  {
+    id: "devops-essentials-task-3",
+    title: "CI Pipeline",
+    description: "Set up GitHub Actions to automatically run tests.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "devops-essentials",
+    initialCode:
+      "# Define your configuration here\
+version: '3'\
+services:\
+  web:\
+    image: node:alpine",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "DevOps & Cloud Assignment #3: CI Pipeline",
+    priority: "urgent",
+    visualType: "architecture",
+  },
+  {
+    id: "devops-essentials-task-4",
+    title: "CD Pipeline",
+    description: "Automate deployment to a cloud provider on merge.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "devops-essentials",
+    initialCode:
+      "# Define your configuration here\
+version: '3'\
+services:\
+  web:\
+    image: node:alpine",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "DevOps & Cloud Assignment #4: CD Pipeline",
+    priority: "medium",
+    visualType: "logic",
+  },
+  {
+    id: "devops-essentials-task-5",
+    title: "Reverse Proxy",
+    description: "Configure Nginx as a reverse proxy for your app.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "devops-essentials",
+    initialCode:
+      "# Define your configuration here\
+version: '3'\
+services:\
+  web:\
+    image: node:alpine",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Marcus Thorne",
+      role: "CTO",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus",
+    },
+    subject: "DevOps & Cloud Assignment #5: Reverse Proxy",
+    priority: "high",
+    visualType: "logic",
+  },
+  {
+    id: "devops-essentials-task-6",
+    title: "Infrastructure as Code",
+    description: "Define cloud resources using Terraform.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "devops-essentials",
+    initialCode:
+      "# Define your configuration here\
+version: '3'\
+services:\
+  web:\
+    image: node:alpine",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Alex Rivera",
+      role: "Junior Mentor",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    },
+    subject: "DevOps & Cloud Assignment #6: Infrastructure as Code",
+    priority: "urgent",
+    visualType: "logic",
+  },
+  {
+    id: "devops-essentials-task-7",
+    title: "Secret Management",
+    description: "Securely inject environment variables and secrets.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "devops-essentials",
+    initialCode:
+      "# Define your configuration here\
+version: '3'\
+services:\
+  web:\
+    image: node:alpine",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Marcus Thorne",
+      role: "CTO",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus",
+    },
+    subject: "DevOps & Cloud Assignment #7: Secret Management",
+    priority: "low",
+    visualType: "logic",
+  },
+  {
+    id: "devops-essentials-task-8",
+    title: "Monitoring Setup",
+    description: "Implement basic monitoring using Prometheus.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "devops-essentials",
+    initialCode:
+      "# Define your configuration here\
+version: '3'\
+services:\
+  web:\
+    image: node:alpine",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "DevOps & Cloud Assignment #8: Monitoring Setup",
+    priority: "low",
+    visualType: "memory",
+  },
+  {
+    id: "devops-essentials-task-9",
+    title: "Log Aggregation",
+    description: "Centralize logs from multiple services.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "devops-essentials",
+    initialCode:
+      "# Define your configuration here\
+version: '3'\
+services:\
+  web:\
+    image: node:alpine",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "David Kim",
+      role: "DevOps Lead",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    },
+    subject: "DevOps & Cloud Assignment #9: Log Aggregation",
+    priority: "high",
+    visualType: "memory",
+  },
+  {
+    id: "devops-essentials-task-10",
+    title: "Kubernetes Basics",
+    description: "Deploy a simple app to a Minikube cluster.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "devops-essentials",
+    initialCode:
+      "# Define your configuration here\
+version: '3'\
+services:\
+  web:\
+    image: node:alpine",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "David Kim",
+      role: "DevOps Lead",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    },
+    subject: "DevOps & Cloud Assignment #10: Kubernetes Basics",
+    priority: "urgent",
+    visualType: "memory",
+  },
+  {
+    id: "java-enterprise-task-1",
+    title: "Spring Boot Init",
+    description: "Set up a new Spring Boot application with Maven/Gradle.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "java-enterprise",
+    initialCode:
+      "package com.example.app;\
+\
+public class Main {\
+    public static void main(String[] args) {\
+        // TODO: implementation\
+    }\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Sarah Chen",
+      role: "Lead Backend Engineer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+    },
+    subject: "Java Enterprise Design Assignment #1: Spring Boot Init",
+    priority: "low",
+    visualType: "architecture",
+  },
+  {
+    id: "java-enterprise-task-2",
+    title: "Dependency Injection",
+    description: "Learn to use @Autowired and @Component for IoC.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "java-enterprise",
+    initialCode:
+      "package com.example.app;\
+\
+public class Main {\
+    public static void main(String[] args) {\
+        // TODO: implementation\
+    }\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "David Kim",
+      role: "DevOps Lead",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    },
+    subject: "Java Enterprise Design Assignment #2: Dependency Injection",
+    priority: "high",
+    visualType: "architecture",
+  },
+  {
+    id: "java-enterprise-task-3",
+    title: "Spring Data JPA",
+    description: "Connect to a relational database using Hibernate.",
+    difficulty: "beginner",
+    category: "Core Implementation",
+    trackId: "java-enterprise",
+    initialCode:
+      "package com.example.app;\
+\
+public class Main {\
+    public static void main(String[] args) {\
+        // TODO: implementation\
+    }\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "Java Enterprise Design Assignment #3: Spring Data JPA",
+    priority: "urgent",
+    visualType: "logic",
+  },
+  {
+    id: "java-enterprise-task-4",
+    title: "MVC Pattern",
+    description:
+      "Build REST endpoints using @RestController and @RequestMapping.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "java-enterprise",
+    initialCode:
+      "package com.example.app;\
+\
+public class Main {\
+    public static void main(String[] args) {\
+        // TODO: implementation\
+    }\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Marcus Thorne",
+      role: "CTO",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus",
+    },
+    subject: "Java Enterprise Design Assignment #4: MVC Pattern",
+    priority: "medium",
+    visualType: "architecture",
+  },
+  {
+    id: "java-enterprise-task-5",
+    title: "Global Exception Handling",
+    description: "Use @ControllerAdvice to handle errors gracefully.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "java-enterprise",
+    initialCode:
+      "package com.example.app;\
+\
+public class Main {\
+    public static void main(String[] args) {\
+        // TODO: implementation\
+    }\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Sarah Chen",
+      role: "Lead Backend Engineer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+    },
+    subject: "Java Enterprise Design Assignment #5: Global Exception Handling",
+    priority: "urgent",
+    visualType: "architecture",
+  },
+  {
+    id: "java-enterprise-task-6",
+    title: "Spring Security Filters",
+    description: "Implement authentication filters to secure endpoints.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "java-enterprise",
+    initialCode:
+      "package com.example.app;\
+\
+public class Main {\
+    public static void main(String[] args) {\
+        // TODO: implementation\
+    }\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "David Kim",
+      role: "DevOps Lead",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    },
+    subject: "Java Enterprise Design Assignment #6: Spring Security Filters",
+    priority: "high",
+    visualType: "architecture",
+  },
+  {
+    id: "java-enterprise-task-7",
+    title: "Microservices Communication",
+    description: "Use FeignClient to communicate between services.",
+    difficulty: "intermediate",
+    category: "Core Implementation",
+    trackId: "java-enterprise",
+    initialCode:
+      "package com.example.app;\
+\
+public class Main {\
+    public static void main(String[] args) {\
+        // TODO: implementation\
+    }\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Sarah Chen",
+      role: "Lead Backend Engineer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+    },
+    subject:
+      "Java Enterprise Design Assignment #7: Microservices Communication",
+    priority: "low",
+    visualType: "memory",
+  },
+  {
+    id: "java-enterprise-task-8",
+    title: "Message Queues",
+    description: "Integrate RabbitMQ or Kafka for asynchronous processing.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "java-enterprise",
+    initialCode:
+      "package com.example.app;\
+\
+public class Main {\
+    public static void main(String[] args) {\
+        // TODO: implementation\
+    }\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Sarah Chen",
+      role: "Lead Backend Engineer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+    },
+    subject: "Java Enterprise Design Assignment #8: Message Queues",
+    priority: "low",
+    visualType: "architecture",
+  },
+  {
+    id: "java-enterprise-task-9",
+    title: "Testing Strategy",
+    description: "Write unit tests using JUnit 5 and Mockito.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "java-enterprise",
+    initialCode:
+      "package com.example.app;\
+\
+public class Main {\
+    public static void main(String[] args) {\
+        // TODO: implementation\
+    }\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Elena Rodriguez",
+      role: "Senior UI Designer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+    },
+    subject: "Java Enterprise Design Assignment #9: Testing Strategy",
+    priority: "high",
+    visualType: "memory",
+  },
+  {
+    id: "java-enterprise-task-10",
+    title: "Performance Tuning",
+    description: "Profile and optimize Java heap space and garbage collection.",
+    difficulty: "advanced",
+    category: "Core Implementation",
+    trackId: "java-enterprise",
+    initialCode:
+      "package com.example.app;\
+\
+public class Main {\
+    public static void main(String[] args) {\
+        // TODO: implementation\
+    }\
+}",
+    instructions: [
+      {
+        title: "Step 1: Planning",
+        content:
+          "Review the requirements and plan out your data structures or endpoints.",
+      },
+      {
+        title: "Step 2: Implementation",
+        content:
+          "Write the core logic avoiding common pitfalls and code smells.",
+      },
+      {
+        title: "Step 3: Refactoring",
+        content:
+          "Clean up your code and ensure proper naming conventions and modularity.",
+      },
+    ],
+    basics: [
+      {
+        title: "Best Practices",
+        content:
+          "Always refer to the official documentation when dealing with new language features or libraries.",
+      },
+    ],
+    tips: [
+      {
+        title: "Debugging Tip",
+        content:
+          "Use console logs or a proper debugger to step through your application state.",
+      },
+    ],
+    sender: {
+      name: "Sarah Chen",
+      role: "Lead Backend Engineer",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+    },
+    subject: "Java Enterprise Design Assignment #10: Performance Tuning",
+    priority: "urgent",
+    visualType: "memory",
+  },
 ];

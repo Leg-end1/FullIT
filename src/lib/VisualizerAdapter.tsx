@@ -1,18 +1,10 @@
 import React from 'react';
 import { 
   ArrowRight, Cpu, User as UserIcon, Server, Database, 
-  AlertCircle 
+  AlertCircle, CheckCircle2 
 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { cn } from './utils';
-
-/**
- * Enterprise Structural Pattern: Adapter
- * 
- * The VisualizerAdapter allows the application to support diverse 
- * visualization requirements (Memory Stack, Logic Flow, Architecture) 
- * through a unified rendering interface.
- */
 
 export interface VisualizationData {
   type: 'architecture' | 'logic' | 'memory';
@@ -21,7 +13,6 @@ export interface VisualizationData {
 
 export const VisualizerAdapter = {
   render(data: VisualizationData): React.ReactNode {
-    // This acts as the adapter that maps internal state to component logic
     switch (data.type) {
       case 'logic':
         return <LogicVisualizer state={data.state} />;
@@ -34,17 +25,15 @@ export const VisualizerAdapter = {
   }
 };
 
-// Internal Components (Implementation Details)
-
 function LogicVisualizer({ state }: { state: VisualizationData['state'] }) {
   return (
     <div className="w-full max-w-3xl flex items-center justify-between relative px-12">
-      <div className="absolute inset-x-24 top-1/2 -translate-y-1/2 h-1 bg-slate-800/50 rounded-full overflow-hidden">
+      <div className="absolute inset-x-24 top-1/2 -translate-y-1/2 h-1 bg-neutral-200/50 rounded-full overflow-hidden">
         {state === 'running' && (
           <motion.div 
             animate={{ x: ['-100%', '200%'] }}
             transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-            className="absolute top-0 w-24 h-full bg-sky-500 shadow-[0_0_15px_rgba(14,165,233,0.8)]"
+            className="absolute top-0 w-24 h-full bg-neutral-400 shadow-sm"
           />
         )}
       </div>
@@ -60,7 +49,7 @@ function MemoryVisualizer({ state }: { state: VisualizationData['state'] }) {
     <div className="w-full max-w-3xl flex flex-col gap-8 items-center relative">
       <div className="grid grid-cols-2 gap-12 w-full">
         <div className="space-y-4">
-          <h5 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">Stack</h5>
+          <h5 className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest text-center">Stack</h5>
           <div className="flex flex-col-reverse gap-2">
             {[1, 2, 3].map(i => (
               <motion.div 
@@ -69,9 +58,9 @@ function MemoryVisualizer({ state }: { state: VisualizationData['state'] }) {
                 transition={{ repeat: Infinity, duration: 1, delay: i * 0.2 }}
                 className={cn(
                   "h-10 rounded-xl border-2 flex items-center justify-center text-[10px] font-mono transition-all",
-                  state === 'success' ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-500" :
-                  state === 'error' ? "bg-red-500/10 border-red-500/30 text-red-500" :
-                  "bg-slate-900 border-slate-800 text-slate-600"
+                  state === 'success' ? "bg-green-100 border-green-500/30 text-green-600" :
+                  state === 'error' ? "bg-red-100 border-red-500/30 text-red-600" :
+                  "bg-neutral-50 border-neutral-200 text-neutral-400"
                 )}
               >
                 Frame {i}
@@ -80,7 +69,7 @@ function MemoryVisualizer({ state }: { state: VisualizationData['state'] }) {
           </div>
         </div>
         <div className="space-y-4">
-          <h5 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">Heap</h5>
+          <h5 className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest text-center">Heap</h5>
           <div className="grid grid-cols-2 gap-2">
             {[1, 2, 3, 4].map(i => (
               <motion.div 
@@ -89,9 +78,9 @@ function MemoryVisualizer({ state }: { state: VisualizationData['state'] }) {
                 transition={{ repeat: Infinity, duration: 2, delay: i * 0.3 }}
                 className={cn(
                   "aspect-square rounded-xl border-2 flex items-center justify-center text-[10px] font-mono transition-all",
-                  state === 'success' ? "bg-purple-500/10 border-purple-500/30 text-purple-500" :
-                  state === 'error' ? "bg-red-500/10 border-red-500/30 text-red-500" :
-                  "bg-slate-900 border-slate-800 text-slate-600"
+                  state === 'success' ? "bg-purple-100 border-purple-500/30 text-purple-600" :
+                  state === 'error' ? "bg-red-100 border-red-500/30 text-red-600" :
+                  "bg-neutral-50 border-neutral-200 text-neutral-400"
                 )}
               >
                 Obj {i}
@@ -107,18 +96,14 @@ function MemoryVisualizer({ state }: { state: VisualizationData['state'] }) {
 function ArchitectureVisualizer({ state }: { state: VisualizationData['state'] }) {
   return (
     <div className="w-full max-w-3xl flex items-center justify-between relative px-12">
-      <div className="absolute inset-x-24 top-1/2 -translate-y-1/2 h-1 bg-slate-800/50 rounded-full overflow-hidden">
-        {state === 'running' ? (
+      <div className="absolute inset-x-24 top-1/2 -translate-y-1/2 h-1 bg-neutral-200/50 rounded-full overflow-hidden">
+        {state === 'running' && (
           <motion.div 
             animate={{ x: ['-100%', '200%'] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-            className="absolute top-0 w-24 h-full bg-gradient-to-r from-transparent via-sky-500 to-transparent shadow-[0_0_15px_rgba(14,165,233,0.8)]"
+            className="absolute top-0 w-24 h-full bg-neutral-400 shadow-sm"
           />
-        ) : state === 'success' ? (
-          <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} className="absolute inset-0 bg-emerald-500/30 origin-left" />
-        ) : state === 'error' ? (
-          <motion.div animate={{ opacity: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 0.5 }} className="absolute inset-0 bg-red-500/30" />
-        ) : null}
+        )}
       </div>
       <VisualNode icon={<UserIcon className="w-8 h-8" />} label="Client" active={state !== 'idle'} color="sky" />
       <VisualNode icon={<Server className="w-8 h-8" />} label="API" active={state !== 'idle'} status={state === 'error' ? 'error' : state === 'success' ? 'success' : 'idle'} color="purple" />
@@ -127,33 +112,83 @@ function ArchitectureVisualizer({ state }: { state: VisualizationData['state'] }
   );
 }
 
-function VisualNode({ icon, label, active, status, color }: any) {
-  const colors: any = {
-    sky: 'text-sky-400 bg-sky-500/5 border-sky-500/30 shadow-[0_0_40px_rgba(14,165,233,0.15)]',
-    purple: 'text-purple-400 bg-purple-500/5 border-purple-500/30 shadow-[0_0_40px_rgba(168,85,247,0.15)]',
-    emerald: 'text-emerald-400 bg-emerald-500/5 border-emerald-500/30 shadow-[0_0_40px_rgba(16,185,129,0.15)]'
+function VisualNode({
+  icon,
+  label,
+  active,
+  status,
+  color,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  active: boolean;
+  status?: string;
+  color: string;
+}) {
+  const colors: Record<string, string> = {
+    sky: "text-neutral-700 bg-neutral-50 border-black shadow-sm",
+    purple:
+      "text-purple-600 bg-purple-50 border-purple-200 shadow-sm",
+    emerald:
+      "text-emerald-600 bg-emerald-50 border-emerald-200 shadow-sm",
   };
-
   return (
-    <div className="relative flex flex-col items-center gap-5 z-10">
-      <motion.div 
-        animate={active ? { scale: [1, 1.02, 1] } : {}}
+    <div className="relative flex flex-col items-center gap-5 z-10 group">
+      <motion.div
+        animate={
+          active
+            ? {
+                scale: [1, 1.02, 1],
+                boxShadow:
+                  status === "error"
+                    ? "0 0 50px rgba(239, 68, 68, 0.2)"
+                    : status === "success"
+                      ? "0 0 50px rgba(16, 185, 129, 0.2)"
+                      : undefined,
+              }
+            : {}
+        }
         transition={{ repeat: Infinity, duration: 3 }}
         className={cn(
-          "w-28 h-28 rounded-[2.5rem] border flex items-center justify-center transition-all duration-700",
-          active ? colors[color] : "bg-slate-900/40 border-slate-800/50 text-slate-700"
+          "w-28 h-28 rounded-[2.5rem] border flex items-center justify-center transition-all duration-700 relative",
+          active
+            ? colors[color]
+            : "bg-neutral-50/50 border-neutral-100 text-neutral-300",
         )}
       >
-        <div className={cn("transition-all duration-700", active ? "scale-110" : "scale-100")}>
+        <div
+          className={cn(
+            "transition-all duration-700",
+            active ? "scale-110" : "scale-100",
+          )}
+        >
           {icon}
         </div>
-        {status === 'error' && (
-          <div className="absolute -top-1 -right-1 bg-red-500 p-2.5 rounded-2xl border-4 border-[#020408]">
+        {status === "error" && (
+          <motion.div
+            initial={{ scale: 0, rotate: -45 }}
+            animate={{ scale: 1, rotate: 0 }}
+            className="absolute -top-1 -right-1 bg-red-500 p-2.5 rounded-2xl border-4 border-white shadow-xl"
+          >
             <AlertCircle className="w-4 h-4 text-white" />
-          </div>
+          </motion.div>
+        )}
+        {status === "success" && (
+          <motion.div
+            initial={{ scale: 0, rotate: 45 }}
+            animate={{ scale: 1, rotate: 0 }}
+            className="absolute -top-1 -right-1 bg-emerald-500 p-2.5 rounded-2xl border-4 border-white shadow-xl"
+          >
+            <CheckCircle2 className="w-4 h-4 text-white" />
+          </motion.div>
         )}
       </motion.div>
-      <span className={cn("text-[10px] font-bold uppercase tracking-widest", active ? "text-slate-300" : "text-slate-600")}>
+      <span
+        className={cn(
+          "text-[10px] font-bold uppercase tracking-[0.3em] transition-all duration-700 font-display",
+          active ? "text-black" : "text-neutral-300",
+        )}
+      >
         {label}
       </span>
     </div>

@@ -14,6 +14,11 @@ export interface TaskStep {
   content: string;
 }
 
+export interface TaskTip {
+  title: string;
+  content: string;
+}
+
 export interface Task {
   id: string;
   title: string;
@@ -24,6 +29,7 @@ export interface Task {
   initialCode: string;
   instructions: TaskStep[];
   basics?: TaskStep[]; // Educational content
+  tips?: TaskTip[];    // Task-specific tips
   visualState?: 'idle' | 'running' | 'success' | 'error';
   // Real-world email/ticket fields
   sender?: {

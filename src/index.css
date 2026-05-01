@@ -7,26 +7,28 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   body {
-    @apply bg-[#020408] text-slate-300 font-sans antialiased selection:bg-sky-500/30;
+    @apply bg-white text-neutral-900 font-sans antialiased selection:bg-neutral-200;
   }
 }
 
 @layer components {
   .blueprint-grid {
     background-image: 
-      linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+      linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 
   .glass-panel {
-    @apply bg-slate-900/40 border border-slate-800/50 backdrop-blur-xl;
+    @apply bg-white/70 border border-neutral-200 backdrop-blur-xl;
   }
 
   .glow-text {
-    text-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   }
 
   .custom-scrollbar::-webkit-scrollbar {
@@ -37,11 +39,10 @@
     background: transparent;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(30, 41, 59, 0.5);
-    border-radius: 10px;
+    @apply bg-neutral-200 rounded-full;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(51, 65, 85, 0.8);
+    @apply bg-neutral-300;
   }
 
   /* PrismJS Overrides */
