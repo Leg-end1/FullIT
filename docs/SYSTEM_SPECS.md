@@ -9,6 +9,7 @@ This diagram outlines the primary interactions between the User and the System.
 ```mermaid
 useCaseDiagram
     actor "Software Engineer" as User
+    actor "Administrator" as Admin
     actor "Gemini AI" as AI
     actor "Firebase" as Backend
 
@@ -19,6 +20,9 @@ useCaseDiagram
         usecase "View System Visualization" as UC4
         usecase "Receive AI Feedback" as UC5
         usecase "Monitor Progress" as UC6
+        usecase "Manage Users" as UC7
+        usecase "Manage Scores" as UC8
+        usecase "Reset User Progress" as UC9
     }
 
     User --> UC1
@@ -26,11 +30,18 @@ useCaseDiagram
     User --> UC3
     User --> UC6
     
+    Admin --> UC7
+    Admin --> UC8
+    Admin --> UC9
+    
     UC1 ..> Backend : verify
     UC3 ..> AI : evaluate
     UC3 ..> UC4 : update state
     UC5 -- AI
     UC6 ..> Backend : persist data
+    UC7 ..> Backend : update/delete
+    UC8 ..> Backend : update score
+    UC9 ..> Backend : clear tasks
 ```
 
 ## 3. BPMN 2.0 Process Flow (Task Submission)

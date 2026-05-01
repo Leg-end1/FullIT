@@ -65,7 +65,17 @@
 
 ---
 
-### Phase 4: Post-Mortem Report
+### Phase 3: Admin Panel Features
+**Admin Capabilities:**
+- **User Roles:** Change user roles between 'student' and 'admin'.
+- **XP/Scores:** Update user total scores (XP).
+- **Progress Reset:** Reset a user's completed tasks (progress).
+- **User Management:** Delete user accounts.
+
+**Security & Maintenance:**
+- **Access Guard:** Admin actions are secured at the Firestore level.
+- **Verification:** Destructive actions (delete, reset) require user confirmation.
+
 
 **Successes:** 
 The transition to a pattern-based architecture mid-development allowed for much faster integration of the "Java Enterprise" track, as the infrastructure was already abstracted following standard enterprise conventions.

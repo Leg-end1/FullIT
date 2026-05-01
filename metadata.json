@@ -1,5 +1,5 @@
 {
   "name": "FullIT",
-  "description": "An interactive learning platform for full-stack engineers with AI-powered code reviews, ratings, and progression systems.",
+  "description": "An interactive learning platform for full-stack engineers with AI-powered code reviews, progress tracking, and full-access admin tools for user management, role assignments, and data resets.",
   "requestFramePermissions": []
 }
