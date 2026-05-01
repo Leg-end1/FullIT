@@ -1,5 +1,5 @@
 {
-  "name": "StackMaster: Interactive Full-Stack Learning",
-  "description": "A real-world backend and full-stack learning platform with visual task execution and AI-powered code reviews.",
+  "name": "FullIT",
+  "description": "An interactive learning platform for full-stack engineers with AI-powered code reviews, ratings, and progression systems.",
   "requestFramePermissions": []
 }
