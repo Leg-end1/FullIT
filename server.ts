@@ -22,6 +22,7 @@ async function startServer() {
   });
 
   app.post("/api/evaluate", async (req, res) => {
+    // ... (existing code for evaluation)
     const { code, initialCode, taskTitle, taskDescription, coreObjectives } = req.body;
 
     if (!process.env.OPENAI_API_KEY) {
@@ -80,6 +81,67 @@ async function startServer() {
     } catch (error: any) {
       console.error("AI Evaluation Error:", error);
       res.status(500).json({ error: "System Review Error: " + (error.message || "Unknown error") });
+    }
+  });
+
+  app.post("/api/interview", async (req, res) => {
+    const { interview, history, currentCode } = req.body;
+
+    if (!process.env.OPENAI_API_KEY) {
+      return res.status(500).json({ error: "OpenAI API key not configured." });
+    }
+
+    try {
+      const prompt = `
+        You are ${interview.interviewer.name}, ${interview.interviewer.role} at ${interview.company}.
+        Personality: ${interview.interviewer.personality}
+        Role being interviewed for: ${interview.role} (${interview.difficulty})
+
+        Current Session History:
+        ${history.map((m: any) => `${m.sender.toUpperCase()}: ${m.text}`).join("\n")}
+        
+        Current Code in Editor:
+        ${currentCode}
+
+        GOAL: Conduct a realistic 3-phase technical interview.
+        1. THOUGHT: If we just started, ask the first theoretical question.
+        2. FOLLOW-UP: If the user just answered, provide brief feedback (as the character) and either ask a follow-up OR move to a coding task.
+        3. CODE REVIEW: If the user submitted code, look for bugs, performance issues, or architectural flaws. Ask them to explain a specific part.
+        4. WRAP-UP: After ~3-5 exchanges, conclude the interview.
+
+        SCORING: 
+        - Give a scoreDelta for the last response (0 to 20).
+        - Total possible score is 100.
+        - If they pass (70+), congratulate them. If not, be professional but indicate they aren't the right fit yet.
+
+        Response must be valid JSON matching this schema:
+        {
+          "responseText": "The character's dialogue",
+          "scoreDelta": number,
+          "phase": "theory" | "practical" | "review" | "complete",
+          "feedback": "Internal technical evaluation of their last answer"
+        }
+      `;
+
+      const response = await openai.chat.completions.create({
+        model: "gpt-4o",
+        messages: [{ role: "system", content: "You are a professional technical interviewer." }, { role: "user", content: prompt }],
+        response_format: { type: "json_object" },
+      });
+
+      const content = response.choices[0].message.content;
+      if (!content) throw new Error("Empty response from OpenAI");
+
+      const result = JSON.parse(content);
+      res.json(result);
+    } catch (error: any) {
+      console.error("OpenAI Interview Error:", error);
+      res.status(500).json({ 
+        responseText: "I'm having some trouble connecting to the evaluation server. Let's pause here.",
+        scoreDelta: 0,
+        phase: 'complete',
+        feedback: "System Offline"
+      });
     }
   });
 
